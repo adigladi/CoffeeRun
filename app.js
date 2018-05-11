@@ -329,7 +329,8 @@ function initMap() {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.350779, lng: 18.068313 }
+		position: { lat: 59.350779, lng: 18.068313 },
+		icon: 'images/marker.png'
 	});
 	marker1.addListener('click', function () {
 		infowindow1.open(map, marker1);
@@ -343,7 +344,8 @@ function initMap() {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.3478927, lng: 18.072917 }
+		position: { lat: 59.3478927, lng: 18.072917 },
+		icon: 'images/marker.png'
 	});
 	marker2.addListener('click', function () {
 		infowindow2.open(map, marker2);
@@ -357,7 +359,8 @@ function initMap() {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.346453, lng: 18.072463 }
+		position: { lat: 59.346453, lng: 18.072463 },
+		icon: 'images/marker.png'
 	});
 	marker3.addListener('click', function () {
 		infowindow3.open(map, marker3);
@@ -371,7 +374,8 @@ function initMap() {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.348593, lng: 18.071049 }
+		position: { lat: 59.348593, lng: 18.071049 },
+		icon: 'images/marker.png'
 	});
 	marker4.addListener('click', function () {
 		infowindow4.open(map, marker4);
@@ -385,7 +389,8 @@ function initMap() {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.347112, lng: 18.072042 }
+		position: { lat: 59.347112, lng: 18.072042 },
+		icon: 'images/marker.png'
 	});
 	marker5.addListener('click', function () {
 		infowindow5.open(map, marker6);
@@ -399,7 +404,8 @@ function initMap() {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.346453, lng: 18.072463 }
+		position: { lat: 59.346453, lng: 18.072463 },
+		icon: 'images/marker.png'
 	});
 	marker6.addListener('click', function () {
 		infowindow6.open(map, marker6);
