@@ -16,24 +16,28 @@
 
 <body>
 	<ons-page>
-			<ons-toolbar>
-				<div class="center">Coffee Run</div>
-			</ons-toolbar>
-			
-			<ons-tabbar position="auto">
-				<ons-tab page="home.html" label="Home" icon="ion-information-circled" active>
-				</ons-tab>
-				<ons-tab page="map.html" label="Map" icon="md-walk">
-				</ons-tab>
-			</ons-tabbar>
+		<ons-tabbar position="auto">
+			<ons-tab page="home.html" label="Home" icon="ion-information-circled" active>
+			</ons-tab>
+			<ons-tab page="map.html" label="Map" icon="md-walk">
+			</ons-tab>
+		</ons-tabbar>
 	</ons-page>
 	
 	<template id="home.html">
 		<ons-page>
-			<img class="logo" src="images/favicon.png"></img>
-			<h1>Coffee Run</h1>
-	
-			<ons-card onclick="fn.pushPage({'id': 'feet.html', 'title': 'Feel your feet'})">
+			<div id="optionButtons">
+				<div id="getCoffee">
+					<img src="images/favicon.png"></img>
+					<h1>Order Coffee</h1>
+				</div>
+				<div id="runCoffee">
+					<img src="images/favicon.png"></img>
+					<h1>Make a Coffee Run</h1>
+				</div>
+			</div>
+
+			<!-- <ons-card onclick="fn.pushPage({'id': 'feet.html', 'title': 'Feel your feet'})">
 				<div class="title">Feet</div>
 			</ons-card>
 			<ons-card onclick="fn.pushPage({'id': 'shoulders.html', 'title': 'Shoulders'})">
@@ -44,7 +48,7 @@
 			</ons-card>
 			<ons-card onclick="fn.pushPage({'id': 'about.html', 'title': 'About'})">
 				<div class="title">About</div>
-			</ons-card>
+			</ons-card> -->
 		</ons-page>
 	</template>
 

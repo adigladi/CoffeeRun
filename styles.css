@@ -67,3 +67,28 @@ body .page__background {
   background-color: #4e280d;
 }
 /* END OF ONSEN UI */
+
+/* OTHER PAGE CSS */
+#optionButtons {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
+#optionButtons img{
+  width: 80%;
+}
+
+#getCoffee {
+  width: 45%;
+  float: left;
+  border: 2px solid black;
+}
+
+#runCoffee {
+  width: 45%;
+  float: right;
+  border: 2px solid black;
+}
+/* END OF PAGE CSS */
