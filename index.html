@@ -54,18 +54,20 @@
 						<img src="images/favicon.png" onclick="fn.pushPage({'id': 'home.html'})"></img>
 				</div>
 				<div id="requestPage">
-					<select name="coffeeType">
-						<option value="Latte">Volvo</option>
-						<option value="Cappuccino">Saab</option>
-						<option value="Flat White">Fiat</option>
-						<option value="Ice Coffee">Audi</option>
-					</select>
-					<select name="coffeeType">
-						<option value="Latte">Volvo</option>
-						<option value="Cappuccino">Saab</option>
-						<option value="Flat White">Fiat</option>
-						<option value="Ice Coffee">Audi</option>
-						</select>
+					<ons-select id="coffeeType" onchange="editSelects(event)">
+						<option value="Latte">Latte</option>
+						<option value="Cappuccino">Cappuccino</option>
+						<option value="Flat White">Flat White</option>
+						<option value="Ice Coffee">Ice Coffee</option>
+					</ons-select>
+					<ons-select id="coffeePlace" onchange="editSelects(event)">
+						<option value="Open">Open</option>
+						<option value="KTH Entré">KTH Entré</option>
+						<option value="KTH Biblioteket">KTH Biblioteket</option>
+						<option value="Syster o Rorb">Syster o Rorb</option>
+					</ons-select>
+					<input type="number" />
+					<textarea class="textarea" rows="3" placeholder="Additional Info"></textarea>
 					<button>PLACE ORDER</button>
 				</div>
 			</div>
