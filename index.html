@@ -25,7 +25,7 @@
 	</ons-page>
 	
 	<template id="home.html">
-		<ons-page>
+		<ons-page id="runs">
 			<h1>Available runs</h1>
 				<ons-card id="relax1button">
 						<div class="title">LATTE FROM OPEN</div>
@@ -64,7 +64,7 @@
 			<div id="main">
 				<div id="map"></div>
 				<div id="requestCoffee">
-						<img src="images/favicon.png" onclick="fn.pushPage({'id': 'home.html'})"></img>
+						<img src="images/favicon.png" onclick="addNewMarker()"></img>
 				</div>
 			</div>
 		</ons-page>
