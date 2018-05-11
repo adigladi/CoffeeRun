@@ -470,17 +470,10 @@ window.fn.pushPage = function (page, anim) {
 	}
 };
 
-var showDialog = function() {
-  var dialog = document.getElementById('requestDialog');
-
-  if (dialog) {
-    dialog.show();
-  } else {
-    ons.createElement('requestDialog.html', { append: true })
-      .then(function(dialog) {
-        dialog.show();
-      });
-  }
+var showRequest = function() {
+  document.getElementById('requestPage').style.display = 'block';
+	document.getElementById('map').style.filter = 'blur(5px)';
+	//document.getElementById('tabbar').style.filter = 'blur(5px)';
 };
 
 var hideDialog = function(id) {

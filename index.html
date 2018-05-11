@@ -16,7 +16,7 @@
 
 <body>
 	<ons-page>
-		<ons-tabbar position="auto">
+		<ons-tabbar id="tabbar" position="auto">
 			<ons-tab page="map.html" label="Map" icon="md-walk" active>
 			</ons-tab>
 			<ons-tab page="home.html" label="Runs" icon="ion-beer">
@@ -53,10 +53,10 @@
 			<div id="main">
 				<div id="map"></div>
 				<div id="requestIcon">
-						<img src="images/addrun.png" onclick="fn.pushPage({'id': 'home.html'})"></img>
+						<img src="images/addrun.png" onclick="showRequest()"></img>
 				</div>
 				
-				<div id="requestPage">
+				<div id="requestPage" style="display: none">
 					<ons-select id="coffeeType" onchange="editSelects(event)">
 						<option value="Latte">Latte</option>
 						<option value="Cappuccino">Cappuccino</option>
@@ -73,7 +73,7 @@
 					<textarea class="textarea" rows="3" placeholder="Additional Info"></textarea>
 					<button>PLACE ORDER</button>
 				</div>
-				
+
 			</div>
 		</ons-page>
 	</template>
