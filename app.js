@@ -469,4 +469,23 @@ window.fn.pushPage = function (page, anim) {
 		document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
 	}
 };
+
+var showDialog = function() {
+  var dialog = document.getElementById('requestDialog');
+
+  if (dialog) {
+    dialog.show();
+  } else {
+    ons.createElement('requestDialog.html', { append: true })
+      .then(function(dialog) {
+        dialog.show();
+      });
+  }
+};
+
+var hideDialog = function(id) {
+  document
+    .getElementById(id)
+    .hide();
+};
 //End of ONSEN UI
