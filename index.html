@@ -14,7 +14,19 @@
 </head>
 
 <body>
-	<ons-navigator swipeable id="appNavigator" page="home.html"></ons-navigator>
+	<ons-page>
+			<ons-toolbar>
+				<div class="center">Coffee Run</div>
+			</ons-toolbar>
+			
+			<ons-tabbar swipeable position="auto">
+				<ons-tab page="home.html" label="Home" icon="ion-information-circled" active>
+				</ons-tab>
+				<ons-tab page="map.html" label="Map" icon="md-walk">
+				</ons-tab>
+			</ons-tabbar>
+	</ons-page>
+	
 	<template id="home.html">
 		<ons-page>
 			<img class="intro" src="images/favicon.png"></img>
