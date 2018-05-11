@@ -37,26 +37,32 @@ html, body {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 70%;
-  width: 70%;
+  height: 80%;
+  width: 80%;
 
   background-color: #4e280d;
   border: 2px solid black;
-
   text-align: center;
 }
 
 #requestPage button{
-  background-color: #555555;
+  background-color: #ea6a36;
   border: none;
   color: white;
-  padding: 10px 13px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 16px;
   margin: 2px 2px;
   cursor: pointer;
+}
+
+#coffeeType, #coffeePlace, #coffeeNumber, .textarea{
+  text-align: center;
+  float: center;
+  display: block;
+  width: 100%;
 }
 
 #map {
@@ -91,8 +97,9 @@ html, body {
 /* END OF GOOGLE MAP CSS */
 
 /* ONSEN UI CSS */
-body .page__background {
+body .page__background, .select-input {
   background-color: #4e280d;
+  color: white !important;
 }
 /* END OF ONSEN UI */
 
