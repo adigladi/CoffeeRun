@@ -3,7 +3,7 @@
     "name": "Our Map",
     "icons": [
       {
-        "src": "favicon.jpg",
+        "src": "images/favicon.png",
         "sizes": "300x300",
         "type": "image/png"
       }
