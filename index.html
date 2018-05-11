@@ -26,7 +26,8 @@
 	
 	<template id="home.html">
 		<ons-page id="runs">
-			<h1>Available runs</h1>
+			<h1 onclick="addNewMarker()">Available runs</h1>
+			<div id="available">
 				<ons-card id="relax1button">
 						<div class="title">LATTE FROM OPEN</div>
 					</ons-card>
@@ -36,6 +37,7 @@
 					<ons-card id="relax3button">
 						<div class="title">FLAT WHITE FROM COFFICE</div>
 					</ons-card>
+				</div>
 					<h1>In progress runs</h1>
 					<ons-card id="relax2button">
 							<div class="title">COFFEE FROM 7-11</div>

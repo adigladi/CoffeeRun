@@ -438,11 +438,12 @@ function initMap() {
 //MARKERS END
 
 function addNewMarker() {
+	console.log("hej")
 	markernr += 1;
 	var markername = "marker"+markernr;
 	var infomane = "infowindow"+markernr;
 	var markerinfo = prompt("Description of the marker:");
-	$("#runs").append("<ons-card id="+markername+"><div class='title'>"+markerinfo+"</div></ons-card>")
+	$("#available").append("<ons-card id="+markername+"><div class='title'>"+markerinfo+"</div></ons-card>")
 	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
