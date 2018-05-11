@@ -14,6 +14,27 @@
 </head>
 
 <body>
+	<template id="home.html">
+		<ons-page>
+			<h2 class="intro">
+			Relaxation practices<br><br>
+			</h2>
+	
+			<ons-card onclick="fn.pushPage({'id': 'feet.html', 'title': 'Feel your feet'})">
+				<div class="title">Feet</div>
+			</ons-card>
+			<ons-card onclick="fn.pushPage({'id': 'shoulders.html', 'title': 'Shoulders'})">
+				<div class="title">Shoulders</div>
+			</ons-card>
+			<ons-card onclick="fn.pushPage({'id': 'face.html', 'title': 'Face'})">
+				<div class="title">Face</div>
+			</ons-card>
+			<ons-card onclick="fn.pushPage({'id': 'about.html', 'title': 'About'})">
+				<div class="title">About</div>
+			</ons-card>
+		</ons-page>
+	</template>
+
 	<div id="main">
 	<div id="map"></div>
 	<div id="buttons1">
