@@ -14,6 +14,7 @@
 </head>
 
 <body>
+	<ons-navigator swipeable id="appNavigator" page="home.html"></ons-navigator>
 	<template id="home.html">
 		<ons-page>
 			<h2 class="intro">
@@ -35,21 +36,25 @@
 		</ons-page>
 	</template>
 
-	<div id="main">
-	<div id="map"></div>
-	<div id="buttons1">
-		<button id="add" class="mapbuttons" onClick="addNewMarker()">Add Marker</button>
-		<button id="sat" class="mapbuttons" onClick="mapSat()">Satellite</button>
-		<button id="road" class="mapbuttons" onClick="mapRoad()">Roadmap</button>
-		<button id="plus" class="mapbuttons" onClick="Zoomplus()">+</button>
-		<button id="minus" class="mapbuttons" onClick="Zoomminus()">-</button>
-	</div>
-	<div id="buttons2">
-	<button id="stadshuset" class="mapbuttons" onClick="centerStads()">Stadshuset</button>
-	<button id="open" class="mapbuttons" onClick="centerOpen()">Open</button>
-	<button id="biblo" class="mapbuttons" onClick="centerBiblo()">Bibliotek</button>
-</div>
-</div>
+	<template id="map.html">
+		<ons-page>
+			<div id="main">
+				<div id="map"></div>
+				<div id="buttons1">
+					<button id="add" class="mapbuttons" onClick="addNewMarker()">Add Marker</button>
+					<button id="sat" class="mapbuttons" onClick="mapSat()">Satellite</button>
+					<button id="road" class="mapbuttons" onClick="mapRoad()">Roadmap</button>
+					<button id="plus" class="mapbuttons" onClick="Zoomplus()">+</button>
+					<button id="minus" class="mapbuttons" onClick="Zoomminus()">-</button>
+				</div>
+				<div id="buttons2">
+					<button id="stadshuset" class="mapbuttons" onClick="centerStads()">Stadshuset</button>
+					<button id="open" class="mapbuttons" onClick="centerOpen()">Open</button>
+					<button id="biblo" class="mapbuttons" onClick="centerBiblo()">Bibliotek</button>
+				</div>
+			</div>
+		</ons-page>
+	</template>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLT8siLp_CgtmtkV4D0tsAGmIc6Ln9aN4&callback=initMap" async defer></script>
 </body>
