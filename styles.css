@@ -70,7 +70,7 @@ body .page__background {
 
 /* OTHER PAGE CSS */
 #optionButtons {
-  width: 100%;
+  width: 90%;
   margin: auto;
   text-align: center;
   color: white;
@@ -78,17 +78,39 @@ body .page__background {
 
 #optionButtons img{
   width: 80%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 #getCoffee {
-  width: 45%;
-  float: left;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 1;
+  bottom: 0;
+  left: 0;
+
+  height: 100%;
+  width: 50%;
+
   border: 2px solid black;
 }
 
 #runCoffee {
-  width: 45%;
-  float: right;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 1;
+
+  height: 100%;
+  width: 50%;
+
   border: 2px solid black;
 }
 /* END OF PAGE CSS */
