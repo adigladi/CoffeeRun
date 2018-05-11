@@ -17,9 +17,9 @@
 <body>
 	<ons-page>
 		<ons-tabbar position="auto">
-			<ons-tab page="home.html" label="Home" icon="ion-information-circled" active>
-			</ons-tab>
 			<ons-tab page="map.html" label="Map" icon="md-walk">
+			</ons-tab>
+			<ons-tab page="home.html" label="Runs" icon="ion-beer" active>
 			</ons-tab>
 		</ons-tabbar>
 	</ons-page>
@@ -57,7 +57,7 @@
 			<div id="main">
 				<div id="map"></div>
 				<div id="requestCoffee">
-						<img src="images/favicon.png"></img>
+						<img src="images/favicon.png" onclick="fn.pushPage({'id': 'home.html'})"></img>
 				</div>
 			</div>
 		</ons-page>
