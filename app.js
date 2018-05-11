@@ -323,7 +323,7 @@ function initMap() {
 	//MARKERS START
 
 	var infowindow1 = new google.maps.InfoWindow({
-		content: "<strong>The Coffice</strong><p>Sweetly scented arabica; for the perfectionist!</p><p><strong>$$</strong>$</p>",
+		content: "<div id='iw-container'><header class='iw-title'>The Coffice</header><p>Sweetly scented arabica; for the perfectionist!</p><p><strong>$$</strong>$</p></div>",
 		maxWidth: 250
 	});
 
@@ -339,7 +339,7 @@ function initMap() {
 	});
 
 	var infowindow2 = new google.maps.InfoWindow({
-		content: "<strong>KTH Biblioteket</strong><p>Enjoy a fresh cup of coffee with your best chums in the fountainhead of knowledge!</p><strong>$$</strong>$</p>",
+		content: "<div id='iw-container'><header class='iw-title'>KTH Biblioteket</header><p>Enjoy a fresh cup of coffee with your best chums in the fountainhead of knowledge!</p><strong>$$</strong>$</p></div>",
 		maxWidth: 250
 	});
 
@@ -355,7 +355,7 @@ function initMap() {
 	});
 
 	var infowindow3 = new google.maps.InfoWindow({
-		content: "<strong>Café Open</strong><p>An oasis in the rush hour! Both a work space and a coffee provider</p><strong>$$</strong>$</p>",
+		content: "<div id='iw-container'><header class='iw-title'>Café Open</header><p>An oasis in the rush hour! Both a work space and a coffee provider</p><strong>$$</strong>$</p></div>",
 		maxWidth: 250
 	});
 
@@ -371,7 +371,7 @@ function initMap() {
 	});
 
 	var infowindow4 = new google.maps.InfoWindow({
-		content: "<strong>Syster O Rorb</strong><p>Give us your moneeeeey!</p><strong>$$$$</strong></p>",
+		content: "<div id='iw-container'><header class='iw-title'>Syster O Rorb</header><p>Give us your moneeeeey!</p><strong>$$$$</strong></p></div>",
 		maxWidth: 250
 	});
 
@@ -387,7 +387,7 @@ function initMap() {
 	});
 
 	var infowindow5 = new google.maps.InfoWindow({
-		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolans tunnelbanestation</p><strong>$</strong>$$</p>",
+		content: "<div id='iw-container'><header class='iw-title'>KTH Entré</header><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolans tunnelbanestation</p><strong>$</strong>$$</p></div>",
 		maxWidth: 250
 	});
 
@@ -403,7 +403,7 @@ function initMap() {
 	});
 
 	var infowindow6 = new google.maps.InfoWindow({
-		content: "<strong>Restaurang Q</strong><p>No need for fancy words, in Q every man is equal; thus we keep or prices low!</p><strong></strong>$$$</p>",
+		content: "<div id='iw-container'><header class='iw-title'>Restaurang Q</header><p>No need for fancy words, in Q every man is equal; thus we keep or prices low!</p><strong></strong>$$$</p></div>",
 		maxWidth: 250
 	});
 
@@ -419,7 +419,7 @@ function initMap() {
 	});
 
 	var infowindow7 = new google.maps.InfoWindow({
-		content: "<strong>Brazilia Restaurang</strong><p>Stroll across the imaginary pastures of KTH to reach this gem over at M!</p><strong>$$$</strong></p>",
+		content: "<div id='iw-container'><header class='iw-title'>Brazilia Restaurang</header><p>Stroll across the imaginary pastures of KTH to reach this gem over at M!</p><strong>$$$</strong></p></div>",
 		maxWidth: 250
 	});
 
@@ -438,7 +438,6 @@ function initMap() {
 //MARKERS END
 
 function addNewMarker() {
-	console.log("hej")
 	markernr += 1;
 	var markername = "marker"+markernr;
 	var infomane = "infowindow"+markernr;
