@@ -41,6 +41,7 @@ html, body {
   width: 80%;
 
   background-color: #4e280d;
+  border-radius: 2px;
   border: 2px solid black;
   text-align: center;
 }
