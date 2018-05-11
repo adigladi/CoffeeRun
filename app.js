@@ -1,6 +1,7 @@
 var map;
 var mapType = 'roadmap';
 var startzoom = 16;
+var markernr = 7;
 
 function Zoomplus() {
 	map.setZoom(map.getZoom() + 1);
@@ -437,20 +438,23 @@ function initMap() {
 //MARKERS END
 
 function addNewMarker() {
+	markernr += 1;
+	var markername = "marker"+markernr;
+	var infomane = "infowindow"+markernr;
 	var markerinfo = prompt("Description of the marker:");
-	var infowindow = new google.maps.InfoWindow({
+	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
 
-	marker = new google.maps.Marker({
+	markername = new google.maps.Marker({
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
 		position: map.getCenter()
 	});
 	map.setCenter(map.getCenter());
-	marker.addListener('click', function () {
-		infowindow.open(map, marker);
+	markername.addListener('click', function () {
+		infoname.open(map, markername);
 	});
 }
 
