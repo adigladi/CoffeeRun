@@ -56,21 +56,21 @@ function initMap() {
 	//MARKERS START
 
 	var infowindow1 = new google.maps.InfoWindow({
-		content: "<strong>Martins favoritplats</strong><p>Stadshuset</p>"
+		content: "<strong>The Coffice</strong><p>Sweetly scented arabica; for the perfectionist!</p>"
 	});
 
 	marker1 = new google.maps.Marker({
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.3272911, lng: 18.0543577 }
+		position: { lat: 59.350779, lng: 18.068313 }
 	});
 	marker1.addListener('click', function () {
 		infowindow1.open(map, marker1);
 	});
 
 	var infowindow2 = new google.maps.InfoWindow({
-		content: "<a href='https://www.kth.se/en/kthb'><strong>KTH Biblioteket</strong></a>"
+		content: "<strong>KTH Biblioteket</strong><p>Enjoy a fresh cup with your best chums in the fountainhead of knowledge!</p>"
 	});
 
 	marker2 = new google.maps.Marker({
@@ -98,14 +98,14 @@ function initMap() {
 	});
 
 	var infowindow4 = new google.maps.InfoWindow({
-		content: "<strong>Martins favoritplats</strong><p>Stadshuset</p>"
+		content: "<strong>Syster och Bror</strong><p>Stadshuset</p>"
 	});
 
 	marker4 = new google.maps.Marker({
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.3272911, lng: 18.0543577 }
+		position: { lat: 59.348593, lng: 18.071049 }
 	});
 	marker4.addListener('click', function () {
 		infowindow4.open(map, marker4);
