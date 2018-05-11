@@ -114,3 +114,14 @@ function addNewMarker(){
 	  });
 }
 
+//ONSEN UI functions
+window.fn = {};
+
+window.fn.pushPage = function (page, anim) {
+  if (anim) {
+    document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title }, animation: anim });
+  } else {
+    document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
+  }
+};
+//End of ONSEN UI
