@@ -322,12 +322,12 @@ function initMap() {
 	//MARKERS START
 
 	var infowindow1 = new google.maps.InfoWindow({
-		content: "<strong>The Coffice</strong><p>Sweetly scented arabica; for the perfectionist!</p>"
+		content: "<strong>The Coffice</strong><p>Sweetly scented arabica; for the perfectionist!</p><p><strong>$$</strong>$</p>"
 	});
 
 	marker1 = new google.maps.Marker({
 		map: map,
-		draggable: true,
+		draggable: false,
 		animation: google.maps.Animation.DROP,
 		position: { lat: 59.350779, lng: 18.068313 },
 		icon: 'images/marker.png'
@@ -337,12 +337,12 @@ function initMap() {
 	});
 
 	var infowindow2 = new google.maps.InfoWindow({
-		content: "<strong>KTH Biblioteket</strong><p>Enjoy a fresh cup of coffee with your best chums in the fountainhead of knowledge!</p>"
+		content: "<strong>KTH Biblioteket</strong><p>Enjoy a fresh cup of coffee with your best chums in the fountainhead of knowledge!</p><strong>$$</strong>$</p>"
 	});
 
 	marker2 = new google.maps.Marker({
 		map: map,
-		draggable: true,
+		draggable: false,
 		animation: google.maps.Animation.DROP,
 		position: { lat: 59.3478927, lng: 18.072917 },
 		icon: 'images/marker.png'
@@ -352,12 +352,12 @@ function initMap() {
 	});
 
 	var infowindow3 = new google.maps.InfoWindow({
-		content: "<strong>Café Open</strong><p>An oasis in the rush hour! Both a work space and a coffee provider</p>"
+		content: "<strong>Café Open</strong><p>An oasis in the rush hour! Both a work space and a coffee provider</p><strong>$$</strong>$</p>"
 	});
 
 	marker3 = new google.maps.Marker({
 		map: map,
-		draggable: true,
+		draggable: false,
 		animation: google.maps.Animation.DROP,
 		position: { lat: 59.346453, lng: 18.072463 },
 		icon: 'images/marker.png'
@@ -367,12 +367,12 @@ function initMap() {
 	});
 
 	var infowindow4 = new google.maps.InfoWindow({
-		content: "<strong>Syster O Rorb</strong><p>Give us your moneeeeey!</p>"
+		content: "<strong>Syster O Rorb</strong><p>Give us your moneeeeey!</p><strong>$$$$</strong></p>"
 	});
 
 	marker4 = new google.maps.Marker({
 		map: map,
-		draggable: true,
+		draggable: false,
 		animation: google.maps.Animation.DROP,
 		position: { lat: 59.348593, lng: 18.071049 },
 		icon: 'images/marker.png'
@@ -382,12 +382,12 @@ function initMap() {
 	});
 
 	var infowindow5 = new google.maps.InfoWindow({
-		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolanstunnelbanestation</p>"
+		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolanstunnelbanestation</p><strong>$</strong>$$</p>"
 	});
 
 	marker5 = new google.maps.Marker({
 		map: map,
-		draggable: true,
+		draggable: false,
 		animation: google.maps.Animation.DROP,
 		position: { lat: 59.347112, lng: 18.072042 },
 		icon: 'images/marker.png'
@@ -397,14 +397,14 @@ function initMap() {
 	});
 
 	var infowindow6 = new google.maps.InfoWindow({
-		content: "<a href='http://www.openlabsthlm.se/open-cafe/' target='_blank'><strong>Café Open</strong></a>"
+		content: "<strong>Restaurang Q</strong><p>No need for fancy words, in Q every man is equal; thus we keep or prices low!</p><strong></strong>$$$</p>"
 	});
 
 	marker6 = new google.maps.Marker({
 		map: map,
-		draggable: true,
+		draggable: false,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.346453, lng: 18.072463 },
+		position: { lat: 59.350321, lng: 18.067408 },
 		icon: 'images/marker.png'
 	});
 	marker6.addListener('click', function () {
