@@ -20,7 +20,7 @@
 				<div class="center">Coffee Run</div>
 			</ons-toolbar>
 			
-			<ons-tabbar swipeable position="auto">
+			<ons-tabbar position="auto">
 				<ons-tab page="home.html" label="Home" icon="ion-information-circled" active>
 				</ons-tab>
 				<ons-tab page="map.html" label="Map" icon="md-walk">
@@ -30,7 +30,8 @@
 	
 	<template id="home.html">
 		<ons-page>
-			<img class="intro" src="images/favicon.png"></img>
+			<img class="logo" src="images/favicon.png"></img>
+			<h1>Coffee Run</h1>
 	
 			<ons-card onclick="fn.pushPage({'id': 'feet.html', 'title': 'Feel your feet'})">
 				<div class="title">Feet</div>
