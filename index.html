@@ -14,12 +14,26 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	<ons-navigator swipeable id="appNavigator" page="map.html"></ons-navigator>
+=======
+	<ons-page>
+			<ons-toolbar>
+				<div class="center">Coffee Run</div>
+			</ons-toolbar>
+			
+			<ons-tabbar swipeable position="auto">
+				<ons-tab page="home.html" label="Home" icon="ion-information-circled" active>
+				</ons-tab>
+				<ons-tab page="map.html" label="Map" icon="md-walk">
+				</ons-tab>
+			</ons-tabbar>
+	</ons-page>
+	
+>>>>>>> 5d6938de2a2e0acc236f4e3ab9de624f700b964c
 	<template id="home.html">
 		<ons-page>
-			<h2 class="intro">
-			Relaxation practices<br><br>
-			</h2>
+			<img class="intro" src="images/favicon.png"></img>
 	
 			<ons-card onclick="fn.pushPage({'id': 'feet.html', 'title': 'Feel your feet'})">
 				<div class="title">Feet</div>
