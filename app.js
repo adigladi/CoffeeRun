@@ -322,7 +322,8 @@ function initMap() {
 	//MARKERS START
 
 	var infowindow1 = new google.maps.InfoWindow({
-		content: "<strong>The Coffice</strong><p>Sweetly scented arabica; for the perfectionist!</p><p><strong>$$</strong>$</p>"
+		content: "<strong>The Coffice</strong><p>Sweetly scented arabica; for the perfectionist!</p><p><strong>$$</strong>$</p>",
+		maxWidth: 250
 	});
 
 	marker1 = new google.maps.Marker({
@@ -337,7 +338,8 @@ function initMap() {
 	});
 
 	var infowindow2 = new google.maps.InfoWindow({
-		content: "<strong>KTH Biblioteket</strong><p>Enjoy a fresh cup of coffee with your best chums in the fountainhead of knowledge!</p><strong>$$</strong>$</p>"
+		content: "<strong>KTH Biblioteket</strong><p>Enjoy a fresh cup of coffee with your best chums in the fountainhead of knowledge!</p><strong>$$</strong>$</p>",
+		maxWidth: 250
 	});
 
 	marker2 = new google.maps.Marker({
@@ -352,7 +354,8 @@ function initMap() {
 	});
 
 	var infowindow3 = new google.maps.InfoWindow({
-		content: "<strong>Café Open</strong><p>An oasis in the rush hour! Both a work space and a coffee provider</p><strong>$$</strong>$</p>"
+		content: "<strong>Café Open</strong><p>An oasis in the rush hour! Both a work space and a coffee provider</p><strong>$$</strong>$</p>",
+		maxWidth: 250
 	});
 
 	marker3 = new google.maps.Marker({
@@ -367,7 +370,8 @@ function initMap() {
 	});
 
 	var infowindow4 = new google.maps.InfoWindow({
-		content: "<strong>Syster O Rorb</strong><p>Give us your moneeeeey!</p><strong>$$$$</strong></p>"
+		content: "<strong>Syster O Rorb</strong><p>Give us your moneeeeey!</p><strong>$$$$</strong></p>",
+		maxWidth: 250
 	});
 
 	marker4 = new google.maps.Marker({
@@ -382,7 +386,8 @@ function initMap() {
 	});
 
 	var infowindow5 = new google.maps.InfoWindow({
-		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolanstunnelbanestation</p><strong>$</strong>$$</p>"
+		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolanstunnelbanestation</p><strong>$</strong>$$</p>",
+		maxWidth: 250
 	});
 
 	marker5 = new google.maps.Marker({
@@ -397,7 +402,8 @@ function initMap() {
 	});
 
 	var infowindow6 = new google.maps.InfoWindow({
-		content: "<strong>Restaurang Q</strong><p>No need for fancy words, in Q every man is equal; thus we keep or prices low!</p><strong></strong>$$$</p>"
+		content: "<strong>Restaurang Q</strong><p>No need for fancy words, in Q every man is equal; thus we keep or prices low!</p><strong></strong>$$$</p>",
+		maxWidth: 250
 	});
 
 	marker6 = new google.maps.Marker({
