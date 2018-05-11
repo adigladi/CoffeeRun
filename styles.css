@@ -1,3 +1,11 @@
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* GOOGLE MAP CSS */
 #main {
 	height: 100%;
 	width: 100%;
@@ -9,7 +17,7 @@
 	filter: blur(5px);
 */
 }
-  
+
 #buttons1 {
 right: 1%;
 bottom: 3%;
@@ -25,12 +33,6 @@ top: 3%;
 #map {
     height: 100%;
     
-}
-/* Optional: Makes the sample page fill the window. */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .mapbuttons {
@@ -58,6 +60,7 @@ html, body {
   margin: 2px 2px;
   cursor: pointer;
 }
+/* END OF GOOGLE MAP CSS */
 
 /* ONSEN UI CSS */
 body .page__background {
