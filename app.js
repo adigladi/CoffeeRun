@@ -350,7 +350,7 @@ function initMap() {
 	});
 
 	var infowindow3 = new google.maps.InfoWindow({
-		content: "<a href='http://www.openlabsthlm.se/open-cafe/' target='_blank'><strong>Café Open</strong></a>"
+		content: "<strong>Café Open</strong><p>An oasis in the rush hour! Both a work space and a coffee provider</p>"
 	});
 
 	marker3 = new google.maps.Marker({
@@ -364,7 +364,7 @@ function initMap() {
 	});
 
 	var infowindow4 = new google.maps.InfoWindow({
-		content: "<strong>Syster och Bror</strong><p>Stadshuset</p>"
+		content: "<strong>Syster och Bror</strong><p>Give us your moneeeeey!</p>"
 	});
 
 	marker4 = new google.maps.Marker({
@@ -378,14 +378,14 @@ function initMap() {
 	});
 
 	var infowindow5 = new google.maps.InfoWindow({
-		content: "<a href='https://www.kth.se/en/kthb'><strong>KTH Biblioteket</strong></a>"
+		content: "<strong>KTH Entré</strong><p></p>"
 	});
 
 	marker5 = new google.maps.Marker({
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: { lat: 59.3478927, lng: 18.072917 }
+		position: { lat: 59.347112, lng: 18.072042 }
 	});
 	marker5.addListener('click', function () {
 		infowindow5.open(map, marker6);
