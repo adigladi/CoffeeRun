@@ -18,10 +18,15 @@ html, body {
 */
 }
 
-#buttons1 {
-right: 1%;
-bottom: 3%;
-position: absolute;
+#requestCoffee {
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+  width: 80px;
+}
+
+#requestCoffee img{
+  width: 100%;
 }
 
 #buttons2 {
@@ -32,7 +37,6 @@ top: 3%;
 
 #map {
     height: 100%;
-    
 }
 
 .mapbuttons {
@@ -86,6 +90,11 @@ body .page__background {
   left: 0;
 }
 
+#optionButtons h1{
+  position: relative;
+  display: block;
+}
+
 #getCoffee {
   position: absolute;
   margin: auto;
@@ -94,8 +103,8 @@ body .page__background {
   bottom: 0;
   left: 0;
 
-  height: 100%;
-  width: 50%;
+  height: 70%;
+  width: 48%;
 
   border: 2px solid black;
 }
@@ -108,8 +117,8 @@ body .page__background {
   bottom: 0;
   left: 1;
 
-  height: 100%;
-  width: 50%;
+  height: 70%;
+  width: 48%;
 
   border: 2px solid black;
 }

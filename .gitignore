@@ -64,3 +64,5 @@ public/404.html
 database.rules.json
 build
 
+.DS_Store
+

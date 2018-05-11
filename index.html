@@ -17,25 +17,32 @@
 <body>
 	<ons-page>
 		<ons-tabbar position="auto">
-			<ons-tab page="home.html" label="Home" icon="ion-information-circled" active>
-			</ons-tab>
 			<ons-tab page="map.html" label="Map" icon="md-walk">
+			</ons-tab>
+			<ons-tab page="home.html" label="Runs" icon="ion-beer" active>
 			</ons-tab>
 		</ons-tabbar>
 	</ons-page>
 	
 	<template id="home.html">
 		<ons-page>
-			<div id="optionButtons">
-				<div id="getCoffee">
-					<img src="images/favicon.png"></img>
-					<h1>Order Coffee</h1>
-				</div>
-				<div id="runCoffee">
-					<img src="images/favicon.png"></img>
-					<h1>Make a Coffee Run</h1>
-				</div>
-			</div>
+			<h1>Available runs</h1>
+				<ons-card id="relax1button">
+						<div class="title">LATTE FROM OPEN</div>
+					</ons-card>
+					<ons-card id="relax2button">
+						<div class="title">CAPPUCCINO FROM THS CAFÉ</div>
+					</ons-card>
+					<ons-card id="relax3button">
+						<div class="title">FLAT WHITE FROM COFFICE</div>
+					</ons-card>
+					<h1>In progress runs</h1>
+					<ons-card id="relax2button">
+							<div class="title">COFFEE FROM 7-11</div>
+						</ons-card>
+						<ons-card id="relax3button">
+							<div class="title">ICE COFFEE FROM 7-11</div>
+						</ons-card>
 
 			<!-- <ons-card onclick="fn.pushPage({'id': 'feet.html', 'title': 'Feel your feet'})">
 				<div class="title">Feet</div>
@@ -56,17 +63,8 @@
 		<ons-page>
 			<div id="main">
 				<div id="map"></div>
-				<div id="buttons1">
-					<button id="add" class="mapbuttons" onClick="addNewMarker()">Add Marker</button>
-					<button id="sat" class="mapbuttons" onClick="mapSat()">Satellite</button>
-					<button id="road" class="mapbuttons" onClick="mapRoad()">Roadmap</button>
-					<button id="plus" class="mapbuttons" onClick="Zoomplus()">+</button>
-					<button id="minus" class="mapbuttons" onClick="Zoomminus()">-</button>
-				</div>
-				<div id="buttons2">
-					<button id="stadshuset" class="mapbuttons" onClick="centerStads()">Stadshuset</button>
-					<button id="open" class="mapbuttons" onClick="centerOpen()">Open</button>
-					<button id="biblo" class="mapbuttons" onClick="centerBiblo()">Bibliotek</button>
+				<div id="requestCoffee">
+						<img src="images/favicon.png" onclick="fn.pushPage({'id': 'home.html'})"></img>
 				</div>
 			</div>
 		</ons-page>
