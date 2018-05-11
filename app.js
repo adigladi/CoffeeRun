@@ -386,7 +386,7 @@ function initMap() {
 	});
 
 	var infowindow5 = new google.maps.InfoWindow({
-		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolanstunnelbanestation</p><strong>$</strong>$$</p>",
+		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolans tunnelbanestation</p><strong>$</strong>$$</p>",
 		maxWidth: 250
 	});
 
@@ -415,6 +415,22 @@ function initMap() {
 	});
 	marker6.addListener('click', function () {
 		infowindow6.open(map, marker6);
+	});
+
+	var infowindow7 = new google.maps.InfoWindow({
+		content: "<strong>Brazilia Restaurang</strong><p>Stroll across the imaginary pastures of KTH to reach this gem over at M!</p><strong>$$$</strong></p>",
+		maxWidth: 250
+	});
+
+	marker7 = new google.maps.Marker({
+		map: map,
+		draggable: false,
+		animation: google.maps.Animation.DROP,
+		position: { lat: 59.353630, lng: 18.065098 },
+		icon: 'images/marker.png'
+	});
+	marker7.addListener('click', function () {
+		infowindow7.open(map, marker7);
 	});
 }
 
