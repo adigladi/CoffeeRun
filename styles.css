@@ -18,21 +18,45 @@ html, body {
 */
 }
 
-#requestCoffee {
+#requestIcon {
   position: absolute;
   right: 15px;
   bottom: 20px;
   width: 80px;
+  cursor: pointer;
 }
 
-#requestCoffee img{
+#requestIcon img{
   width: 100%;
 }
 
-#buttons2 {
-right: 1%;
-top: 3%;
+#requestPage{
   position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 70%;
+  width: 70%;
+
+  background-color: #4e280d;
+  border: 2px solid black;
+
+  text-align: center;
+}
+
+#requestPage button{
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
 }
 
 #map {
