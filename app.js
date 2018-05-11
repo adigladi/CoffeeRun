@@ -386,7 +386,7 @@ function initMap() {
 	});
 
 	var infowindow5 = new google.maps.InfoWindow({
-		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolanstunnelbanestation</p><strong>$</strong>$$</p>",
+		content: "<strong>KTH Entré</strong><p>At the delta of KTH, there is no better place to fetch a fresh one on your way through the torrents of tekniska högskolans tunnelbanestation</p><strong>$</strong>$$</p>",
 		maxWidth: 250
 	});
 
