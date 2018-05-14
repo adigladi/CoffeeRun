@@ -470,15 +470,22 @@ window.fn.pushPage = function (page, anim) {
 	}
 };
 
-var showRequest = function() {
-  document.getElementById('requestPage').style.display = 'block';
-	document.getElementById('map').style.filter = 'blur(5px)';
-	//document.getElementById('tabbar').style.filter = 'blur(5px)';
+var requestClick = function() {
+	if (document.getElementById('requestPage').style.display === 'none') {
+		showRequest();
+	}
+	else {
+		hideRequest();
+	}
 };
 
-var hideDialog = function(id) {
-  document
-    .getElementById(id)
-    .hide();
+var showRequest = function() {
+	document.getElementById('requestPage').style.display = 'block';
+	document.getElementById('map').style.filter = 'blur(5px)';
+};
+
+var hideRequest = function() {
+	document.getElementById('requestPage').style.display = 'none';
+	document.getElementById('map').style.filter = 'blur(0px)';
 };
 //End of ONSEN UI
