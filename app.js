@@ -490,10 +490,45 @@ var hideRequest = function() {
 };
 //End of ONSEN UI
 
+//Order functions
+var orders = [];
+
 var placeOrder = function() {
 	var type = document.getElementById("coffeeType").value;
 	var place = document.getElementById("coffeePlace").value;
 	var number = document.getElementById("coffeeNumber").value;
-	$("#available").append("<ons-card><div class='title'>"+ number + " " + type + " from " + place + "</div></ons-card>");
-	hideRequest();
+	var addInfo = document.getElementById("addInfo").value;
+	
+	/*$("#available").append("<ons-card><div class='title'>"+ number + " " + type + " from " + place + "</div></ons-card>");
+	hideRequest(); */
+	
+	var rand = getId();
+
+	var arr = [type, place, number, addInfo];
+	var obj = {id: rand, order: arr};
+	orders.push(obj);
+	updateOrders();
+	console.log(orders);
 }
+
+var getId = function() {
+	var ids = [];
+	for (var i; i < orders.length; i++) {
+		ids.push(orders[i].id);
+	}
+	var num = Math.floor(Math.random() * 1000);
+	do {
+		num = Math.floor(Math.random() * 1000);
+	}
+	while ($.inArray(num, ids) > -1);
+	return num;
+}
+
+var updateOrders = function() {
+	$("#available").html("");
+	for (var i = 0; i > orders.length; i++) {
+		orders[i].order[0]
+		$("#available").append("<ons-card id="+ orders[i].id +"><div class='title'>"+ orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
+	}
+}
+//End of Order functions
