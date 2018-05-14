@@ -489,3 +489,11 @@ var hideRequest = function() {
 	document.getElementById('map').style.filter = 'blur(0px)';
 };
 //End of ONSEN UI
+
+var placeOrder = function() {
+	var type = document.getElementById("coffeeType").value;
+	var place = document.getElementById("coffeePlace").value;
+	var number = document.getElementById("coffeeNumber").value;
+	$("#available").append("<ons-card><div class='title'>"+ number + " " + type + " from " + place + "</div></ons-card>");
+	hideRequest();
+}

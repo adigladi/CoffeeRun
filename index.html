@@ -57,13 +57,13 @@
 				</div>
 
 				<div id="requestPage" style="display: none">
-					<ons-select id="coffeeType" onchange="editSelects(event)">
+					<ons-select id="coffeeType">
 						<option value="Latte">Latte</option>
 						<option value="Cappuccino">Cappuccino</option>
 						<option value="Flat White">Flat White</option>
 						<option value="Ice Coffee">Ice Coffee</option>
 					</ons-select>
-					<ons-select id="coffeePlace" onchange="editSelects(event)">
+					<ons-select id="coffeePlace">
 						<option value="Open">Open</option>
 						<option value="KTH Entré">KTH Entré</option>
 						<option value="KTH Biblioteket">KTH Biblioteket</option>
@@ -73,7 +73,7 @@
 					<div id="additionalInfo">
 						<textarea class="textarea" rows="3" placeholder="Additional Info"></textarea>
 					</div>
-					<button id="placeOrder">PLACE ORDER</button>
+					<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
 				</div>
 
 			</div>
