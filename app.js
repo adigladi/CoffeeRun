@@ -552,13 +552,21 @@ var updateOrders = function () {
 }
 //End of Order functions
 
-//Functions to write to Firebase
+//Function to read from Firebase
 var database = firebase.database();
 
 function getOrderData() {
 	return database.ref('/coffeeRequests').once('value').then(function (snapshot) {
 		console.log(snapshot);
 	});
+}
+
+//Function to write to Firebase
+function writeOrderData(availableRuns, inProgressRuns) {
+	var updates = {};
+	updates['/available'] = availableRuns;
+	updates['/inProgress'] = inProgressRuns;
+	firebase.database().ref().update(updates);
 }
 
 getOrderData();
