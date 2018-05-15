@@ -29,23 +29,22 @@
 
 <body>
 	<ons-navigator swipeable id="navigator">
-	
-	<ons-page>
-		<ons-tabbar id="tabbar" position="auto">
-			<ons-tab page="map.html" label="Map" icon="md-walk" active>
-			</ons-tab>
-			<ons-tab page="home.html" label="Runs" icon="fa-coffee">
-			</ons-tab>
-		</ons-tabbar>
-	</ons-page>
-</ons-navigator>
+		<ons-page>
+			<ons-tabbar id="tabbar" position="auto">
+				<ons-tab page="map.html" label="Map" icon="md-walk" active>
+				</ons-tab>
+				<ons-tab page="home.html" label="Runs" icon="fa-coffee">
+				</ons-tab>
+			</ons-tabbar>
+		</ons-page>
+	</ons-navigator>
 
 	<template id="map.html">
 		<ons-page>
 			<div id="main">
 				<div id="map"></div>
 				<div id="requestIcon">
-						<img src="images/addrun.png" onclick="requestClick()"></img>
+					<img src="images/addrun.png" onclick="requestClick()"></img>
 				</div>
 
 				<div id="requestPage" style="display: none; overflow-y: auto;">
@@ -61,7 +60,8 @@
 						<option value="KTH Biblioteket">KTH Biblioteket</option>
 						<option value="Syster o Rorb">Syster o Rorb</option>
 					</ons-select>
-					<p id="noCoffeeHeadline">No. of coffes: </p><input id="coffeeNumber" type="number" />
+					<p id="noCoffeeHeadline">No. of coffes: </p>
+					<input id="coffeeNumber" type="number" />
 					<div id="additionalInfo">
 						<textarea class="textarea" id="addInfo" rows="3" placeholder="Additional Info"></textarea>
 					</div>
@@ -74,26 +74,26 @@
 	</template>
 
 	<template id="home.html">
-			<ons-page id="runs">
-				<h1 onclick="addNewMarker()">Available runs</h1>
-				<div id="available"></div>
-				<h1>In progress runs</h1>
-				<ons-card id="relax2button">
-					<div class="title" onclick="getOrder()">COFFEE FROM 7-11</div>
-				</ons-card>
-				<ons-card id="relax3button">
-					<div class="title">ICE COFFEE FROM 7-11</div>
-				</ons-card>
-			</ons-page>
+		<ons-page id="runs">
+			<h1 onclick="addNewMarker()">Available runs</h1>
+			<div id="available"></div>
+			<h1>In progress runs</h1>
+			<ons-card id="relax2button">
+				<div class="title" onclick="getOrder()">COFFEE FROM 7-11</div>
+			</ons-card>
+			<ons-card id="relax3button">
+				<div class="title">ICE COFFEE FROM 7-11</div>
+			</ons-card>
+		</ons-page>
 	</template>
 
 	<template id="order.html">
-			<ons-page id="order">
-				<h1 id="link">ORDER</h1>
-				<ons-card id="relax2button">
-						<div class="title" onclick="removeOrder()">COFFEE FROM 7-11</div>
-					</ons-card>
-			</ons-page>
+		<ons-page id="order">
+			<h1 id="link">ORDER</h1>
+			<ons-card id="relax2button">
+				<div class="title" onclick="removeOrder()">COFFEE FROM 7-11</div>
+			</ons-card>
+		</ons-page>
 	</template>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
