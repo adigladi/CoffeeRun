@@ -1,3 +1,11 @@
+//console.log(firebase.database());
+
+/* Fungerande funktion för att logga "bajs" var 3:e sekund.
+setInterval(function() {
+	console.log("bajs!");
+}, 3*1000);
+*/
+
 var map;
 var mapType = 'roadmap';
 var startzoom = 16;
