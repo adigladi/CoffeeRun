@@ -541,3 +541,14 @@ var updateOrders = function() {
 	}
 }
 //End of Order functions
+
+//Functions to write to Firebase
+var database = firebase.database();
+
+function getOrderData() {
+	return database.ref('/coffeeRequests').once('value').then(function (snapshot) {
+		console.log(snapshot);
+	});
+}
+
+getOrderData();
