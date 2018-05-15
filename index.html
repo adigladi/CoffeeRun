@@ -56,7 +56,7 @@
 						<img src="images/addrun.png" onclick="requestClick()"></img>
 				</div>
 
-				<div id="requestPage" style="display: none">
+				<div id="requestPage" style="display: none; overflow-y: auto;">
 					<ons-select id="coffeeType">
 						<option value="Latte">Latte</option>
 						<option value="Cappuccino">Cappuccino</option>
@@ -73,6 +73,8 @@
 					<div id="additionalInfo">
 						<textarea class="textarea" id="addInfo" rows="3" placeholder="Additional Info"></textarea>
 					</div>
+					<p id="noCoffeeHeadline">Your name: </p>
+					<input id="requestName" type="text" />
 					<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
 				</div>
 

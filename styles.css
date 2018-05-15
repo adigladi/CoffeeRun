@@ -58,10 +58,11 @@ html, body {
   display: inline-block;
   font-size: 16px;
   margin: 2px 2px;
+  margin-bottom: 5%;
   cursor: pointer;
 }
 
-#coffeeType, #coffeePlace, #coffeeNumber, #additionalInfo {
+#coffeeType, #coffeePlace, #coffeeNumber, #requestName, #additionalInfo {
   margin-left: 20%;
   margin-bottom: 5%;
   text-align: center;
