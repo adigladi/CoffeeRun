@@ -496,6 +496,16 @@ var hideRequest = function() {
 	document.getElementById('requestPage').style.display = 'none';
 	document.getElementById('map').style.filter = 'blur(0px)';
 };
+
+var getOrder = function() {
+	var navigator = document.getElementById('navigator');
+	navigator.pushPage('order.html');
+};
+
+var removeOrder = function() {
+	var navigator = document.getElementById('navigator');
+	navigator.popPage();
+};
 //End of ONSEN UI
 
 //Order functions
