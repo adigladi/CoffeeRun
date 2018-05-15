@@ -557,16 +557,17 @@ var database = firebase.database();
 
 function getOrderData() {
 	return database.ref('/coffeeRequests').once('value').then(function (snapshot) {
-		console.log(snapshot);
+		console.log(snapshot.val());
 	});
 }
 
 //Function to write to Firebase
 function writeOrderData(availableRuns, inProgressRuns) {
 	var updates = {};
-	updates['/available'] = availableRuns;
-	updates['/inProgress'] = inProgressRuns;
-	firebase.database().ref().update(updates);
+	updates['/available'] = "availableRuns";
+	updates['/inProgress'] = "inProgressRuns";
+	firebase.database().ref('/coffeeRequests').update(updates);
 }
 
-getOrderData();
+//writeOrderData();
+//getOrderData();
