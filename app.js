@@ -542,6 +542,7 @@ var getOrder = function (id) {
 		var num = document.getElementById("coffeeNum");
 		var name = document.getElementById("orderedBy");
 		var delivery = document.getElementById("delivery");
+		var details = document.getElementById("details");
 		var currentOrder = "";
 		for (var i = 0; i < orders.length; i++) {
 			if (orders[i].id === id) {
@@ -551,7 +552,8 @@ var getOrder = function (id) {
 		type.innerHTML = currentOrder.order[0] + " from " + currentOrder.order[1];
 		num.append(currentOrder.order[2]);
 		name.append(currentOrder.order[3])
-		delivery.append("D-huset");
+		delivery.append(currentOrder.order[4]);
+		details.append(currentOrder.order[5]);
 	});
 };
 
@@ -559,6 +561,14 @@ var removeOrder = function () {
 	var navigator = document.getElementById('navigator');
 	navigator.popPage();
 };
+
+var coffeeRun = function() {
+	for (var i = 0; i < orders.length; i++) {
+		if (orders[i].id === id) {
+			currentOrder = orders[i];
+		}
+	}
+}
 //End of ONSEN UI
 
 //Order functions
@@ -569,12 +579,13 @@ var placeOrder = function () {
 	var place = document.getElementById("coffeePlace").value;
 	var number = document.getElementById("coffeeNumber").value;
 	var requestName = document.getElementById("requestName").value;
+	var requestPlace = document.getElementById("requestPlace").value;
 	var addInfo = document.getElementById("addInfo").value;
 	var toast = document.getElementById("orderToast");
 	var toastCode = document.getElementById("code");
 	var rand = getId();
 
-	var arr = [type, place, number, requestName, addInfo];
+	var arr = [type, place, number, requestName, requestPlace, addInfo];
 	var obj = { id: rand, order: arr };
 
 	orders.push(obj);
