@@ -497,9 +497,10 @@ var hideRequest = function () {
 	document.getElementById('map').style.filter = 'blur(0px)';
 };
 
-var getOrder = function () {
+var getOrder = function (id) {
 	var navigator = document.getElementById('navigator');
 	navigator.pushPage('order.html');
+	console.log(getOrderData());
 };
 
 var removeOrder = function () {
@@ -547,7 +548,7 @@ var getId = function () {
 var updateOrders = function () {
 	$("#available").html("");
 	for (var i = 0; i < orders.length; i++) {
-		$("#available").append("<ons-card id=" + orders[i].id + "><div class='title'>" + orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
+		$("#available").append("<ons-card id='" + orders[i].id + "'onclick='getOrder("+ orders[i].id +")'><div class='title'>" + orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
 	}
 }
 //End of Order functions
