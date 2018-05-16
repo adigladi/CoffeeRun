@@ -544,7 +544,9 @@ var getOrder = function (id) {
 		var delivery = document.getElementById("delivery");
 		var details = document.getElementById("details");
 		var runBtn = document.getElementById("runBtn");
+		document.getElementById("resolveBtn").style.display = 'none';
 		var currentOrder = "";
+		var runName = "";
 		for (var i = 0; i < orders.length; i++) {
 			if (orders[i].id === id) {
 				currentOrder = orders[i];
@@ -558,16 +560,62 @@ var getOrder = function (id) {
 
 		runBtn.addEventListener("click", function () {
 
-			ons.notification.prompt('Enter your name:')
-				.then(function (input) {
-					var message = input;
-					ons.notification.alert({
-						message: "View your Coffee Run by selecting it under 'In progress runs'",
-						title: ""
-					  });
-					removeOrder();
+			ons.notification.prompt({
+				message: "Enter your name:",
+				title: ""
+			}).then(function (input) {
+				runName = input;
+				ons.notification.alert({
+					message: "View your Coffee Run by selecting it under 'In progress runs'",
+					title: ""
 				});
-			coffeeRun(id);
+				removeOrder();
+				coffeeRun(id, runName);
+			});
+		});
+	});
+};
+
+var viewOrder = function (id) {
+	var navigator = document.getElementById('navigator');
+	navigator.pushPage('order.html').then(function () {
+		var type = document.getElementById("orderType");
+		var num = document.getElementById("coffeeNum");
+		var name = document.getElementById("orderedBy");
+		var delivery = document.getElementById("delivery");
+		var details = document.getElementById("details");
+		var resolveBtn = document.getElementById("resolveBtn");
+		document.getElementById("runBtn").style.display = 'none';
+		var currentRun = "";
+		var runName = "";
+		for (var i = 0; i < runs.length; i++) {
+			if (runs[i].id === id) {
+				currentRun = runs[i];
+			}
+		}
+		type.innerHTML = currentRun.order[0] + " from " + currentRun.order[1];
+		num.append(currentRun.order[2]);
+		name.append(currentRun.order[3])
+		delivery.append(currentRun.order[4]);
+		details.append(currentRun.order[5]);
+
+		resolveBtn.addEventListener("click", function () {
+
+			ons.notification.prompt({
+				message: "Enter order code (from coffee buyer):",
+				title: ""
+			}).then(function (input) {
+				if (input == id) {
+					removeRun(id);
+					removeOrder();
+				}
+				else {
+					ons.notification.alert({
+						message: "Wrong order code, please try again!",
+						title: ""
+					});
+				}
+			});
 		});
 	});
 };
@@ -577,11 +625,21 @@ var removeOrder = function () {
 	navigator.popPage();
 };
 
-var coffeeRun = function (idIn) {
+var coffeeRun = function (idIn, name) {
 	for (var i = 0; i < orders.length; i++) {
 		if (orders[i].id === idIn) {
+			orders[i].order.push(name);
 			runs.push(orders[i]);
 			orders.splice(i, 1);
+			updateOrders();
+		}
+	}
+}
+
+var removeRun = function (idIn) {
+	for (var i = 0; i < runs.length; i++) {
+		if (runs[i].id === idIn) {
+			runs.splice(i, 1);
 			updateOrders();
 		}
 	}
@@ -635,7 +693,7 @@ var updateOrders = function () {
 		$("#available").append("<ons-card id='" + orders[i].id + "'onclick='getOrder(" + orders[i].id + ")'><div class='title'>" + orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
 	}
 	for (var j = 0; j < runs.length; j++) {
-		$("#inProgress").append("<ons-card id='" + runs[j].id + "'onclick='getOrder(" + runs[j].id + ")'><div class='title'>" + runs[j].order[2] + " " + runs[j].order[0] + " from " + runs[j].order[1] + "</div></ons-card>");
+		$("#inProgress").append("<ons-card id='" + runs[j].id + "'onclick='viewOrder(" + runs[j].id + ")'><div class='title'>" + runs[j].order[2] + " " + runs[j].order[0] + " from " + runs[j].order[1] + "</div><div class='content'><ons-list><ons-list-header>Runner: " + runs[j].order[6] + "</ons-list-header></ons-list></div></ons-card>");
 	}
 }
 //End of Order functions
