@@ -89,9 +89,25 @@
 
 	<template id="order.html">
 		<ons-page id="order">
-			<h1 id="link">ORDER</h1>
-			<ons-card id="relax2button">
-				<div class="title" onclick="removeOrder()">COFFEE FROM 7-11</div>
+			<ons-card>
+				<img src="images/latte.jpg" alt="Onsen UI" style="width: 100%">
+				<div id="orderType"></div>
+				<div class="content">
+					<ons-list>
+						<ons-list-header id="coffeeNum">Number of Coffees: </ons-list-header>
+						<ons-list-header id="delivery">Delivery to: </ons-list-header>
+					</ons-list>
+					<ons-list>
+						<ons-list-header>Details:</ons-list-header>
+						<ons-list-item>Milk</ons-list-item>
+					</ons-list>
+					<div>
+						<ons-button>Back
+						</ons-button>
+						<ons-button>Make Coffee Run
+						</ons-button>
+					</div>
+				</div>
 			</ons-card>
 		</ons-page>
 	</template>

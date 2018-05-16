@@ -498,8 +498,15 @@ var hideRequest = function () {
 
 var getOrder = function (id) {
 	var navigator = document.getElementById('navigator');
-	navigator.pushPage('order.html');
-	console.log(getOrderData());
+	navigator.pushPage('order.html').then(function() {
+		var type = document.getElementById("orderType");
+		var num = document.getElementById("coffeeNum");
+		var delivery = document.getElementById("delivery");
+
+		type.innerHTML = orders[0].order[0]+ " from " + orders[0].order[1];
+		num.append(orders[0].order[2]);
+		delivery.append("D-huset");
+	  });
 };
 
 var removeOrder = function () {
@@ -527,7 +534,6 @@ var placeOrder = function () {
 	var obj = { id: rand, order: arr };
 	orders.push(obj);
 	updateOrders();
-	console.log(orders);
 	requestClick();
 }
 
