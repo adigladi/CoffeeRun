@@ -661,6 +661,13 @@ var placeOrder = function () {
 	var toastCode = document.getElementById("code");
 	var rand = getId();
 
+	if(type == "" || place == "" || number == "" || requestName == "" || requestPlace == ""){
+		alert("Please fill out the entire form!")
+	}
+
+	else {
+
+
 	var arr = [type, place, number, requestName, requestPlace, addInfo];
 	var obj = { id: rand, order: arr };
 
@@ -671,6 +678,7 @@ var placeOrder = function () {
 	copyToClipboard(rand);
 	addNewMarker(rand, type, place);
 	requestClick();
+	}
 }
 
 var getId = function () {
