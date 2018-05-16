@@ -62,7 +62,7 @@ html, body {
   cursor: pointer;
 }
 
-#coffeeType, #coffeePlace, #coffeeNumber, #requestName, #additionalInfo {
+#coffeeType, #coffeePlace, #coffeeNumber, #additionalInfo {
   margin-left: 20%;
   margin-bottom: 5%;
   text-align: center;
@@ -71,13 +71,19 @@ html, body {
   width: 60%;
 }
 
+#requestName {
+  margin-top: 20%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  float: center;
+  display: block;
+  width: 60%;
+  height: 5%;
+}
+
 #coffeeNumber {
   width: 40%;
   margin-left: 30%;
-}
-
-#coffeeType {
-  margin-top: 15%;
 }
 
 
