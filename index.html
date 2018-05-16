@@ -90,12 +90,7 @@
 			<h1>Available runs</h1>
 			<div id="available"></div>
 			<h1>In progress runs</h1>
-			<ons-card id="relax2button">
-				<div class="title" onclick="getOrder()">COFFEE FROM 7-11</div>
-			</ons-card>
-			<ons-card id="relax3button">
-				<div class="title">ICE COFFEE FROM 7-11</div>
-			</ons-card>
+			<div id="inProgress"></div>
 		</ons-page>
 	</template>
 
@@ -109,11 +104,11 @@
 						<ons-list-header id="coffeeNum">Number of Coffees: </ons-list-header>
 						<ons-list-header id="orderedBy">Ordered by: </ons-list-header>
 						<ons-list-header id="delivery">Delivery to: </ons-list-header>
-						<ons-list-header id="details" >Details:</ons-list-header>
+						<ons-list-header id="details" >Details: </ons-list-header>
 					</ons-list>
 					<div id="detaildiv">
 						<ons-button onclick="removeOrder()">Back</ons-button>
-						<ons-button>Make Coffee Run</ons-button>
+						<ons-button id="runBtn">Make Coffee Run</ons-button>
 					</div>
 				</div>
 			</ons-card>

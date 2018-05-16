@@ -443,8 +443,8 @@ function initMap() {
 
 	// Map bounds
 	var strictBounds = new google.maps.LatLngBounds(
-		    new google.maps.LatLng(59.344249, 18.055795),
-		    new google.maps.LatLng(59.357791, 18.080514)
+		new google.maps.LatLng(59.344249, 18.055795),
+		new google.maps.LatLng(59.357791, 18.080514)
 	);
 
 	// Listen for the dragend event
@@ -513,7 +513,7 @@ var requestClick = function () {
 	}
 };
 
-var copyToClipboard = function(num) {
+var copyToClipboard = function (num) {
 	var el = document.createElement('textarea');
 	el.value = num;
 	el.setAttribute('readonly', '');
@@ -543,6 +543,7 @@ var getOrder = function (id) {
 		var name = document.getElementById("orderedBy");
 		var delivery = document.getElementById("delivery");
 		var details = document.getElementById("details");
+		var runBtn = document.getElementById("runBtn");
 		var currentOrder = "";
 		for (var i = 0; i < orders.length; i++) {
 			if (orders[i].id === id) {
@@ -554,6 +555,20 @@ var getOrder = function (id) {
 		name.append(currentOrder.order[3])
 		delivery.append(currentOrder.order[4]);
 		details.append(currentOrder.order[5]);
+
+		runBtn.addEventListener("click", function () {
+
+			ons.notification.prompt('Enter your name:')
+				.then(function (input) {
+					var message = input;
+					ons.notification.alert({
+						message: "View your Coffee Run by selecting it under 'In progress runs'",
+						title: ""
+					  });
+					removeOrder();
+				});
+			coffeeRun(id);
+		});
 	});
 };
 
@@ -562,10 +577,12 @@ var removeOrder = function () {
 	navigator.popPage();
 };
 
-var coffeeRun = function() {
+var coffeeRun = function (idIn) {
 	for (var i = 0; i < orders.length; i++) {
-		if (orders[i].id === id) {
-			currentOrder = orders[i];
+		if (orders[i].id === idIn) {
+			runs.push(orders[i]);
+			orders.splice(i, 1);
+			updateOrders();
 		}
 	}
 }
@@ -573,6 +590,7 @@ var coffeeRun = function() {
 
 //Order functions
 var orders = [];
+var runs = [];
 
 var placeOrder = function () {
 	var type = document.getElementById("coffeeType").value;
@@ -590,7 +608,7 @@ var placeOrder = function () {
 
 	orders.push(obj);
 	updateOrders();
-	toastCode.innerHTML = "Order code copied to clipboard: "+rand;
+	toastCode.innerHTML = "Order code copied to clipboard: " + rand;
 	toast.toggle();
 	copyToClipboard(rand);
 	addNewMarker(rand, type, place);
@@ -612,8 +630,12 @@ var getId = function () {
 
 var updateOrders = function () {
 	$("#available").html("");
+	$("#inProgress").html("");
 	for (var i = 0; i < orders.length; i++) {
 		$("#available").append("<ons-card id='" + orders[i].id + "'onclick='getOrder(" + orders[i].id + ")'><div class='title'>" + orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
+	}
+	for (var j = 0; j < runs.length; j++) {
+		$("#inProgress").append("<ons-card id='" + runs[j].id + "'onclick='getOrder(" + runs[j].id + ")'><div class='title'>" + runs[j].order[2] + " " + runs[j].order[0] + " from " + runs[j].order[1] + "</div></ons-card>");
 	}
 }
 //End of Order functions
