@@ -441,42 +441,42 @@ function initMap() {
 	});
 
 
-	    // Map bounds
-var strictBounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(59.344249, 18.055795),
-    new google.maps.LatLng(59.357791, 18.080514) 
-  );
+	// Map bounds
+	var strictBounds = new google.maps.LatLngBounds(
+		    new google.maps.LatLng(59.344249, 18.055795),
+		    new google.maps.LatLng(59.357791, 18.080514)
+	);
 
-// Listen for the dragend event
-google.maps.event.addListener(map, 'bounds_changed', function() {
-if (strictBounds.contains(map.getCenter())) return;
+	// Listen for the dragend event
+	google.maps.event.addListener(map, 'bounds_changed', function () {
+		if (strictBounds.contains(map.getCenter())) return;
 
-// We're out of bounds - Move the map back within the bounds
-var c = map.getCenter(),
-x = c.lng(),
-y = c.lat(),
-maxX = strictBounds.getNorthEast().lng(),
-maxY = strictBounds.getNorthEast().lat(),
-minX = strictBounds.getSouthWest().lng(),
-minY = strictBounds.getSouthWest().lat();
+		// We're out of bounds - Move the map back within the bounds
+		var c = map.getCenter(),
+			x = c.lng(),
+			y = c.lat(),
+			maxX = strictBounds.getNorthEast().lng(),
+			maxY = strictBounds.getNorthEast().lat(),
+			minX = strictBounds.getSouthWest().lng(),
+			minY = strictBounds.getSouthWest().lat();
 
-if (x < minX) x = minX;
-if (x > maxX) x = maxX;
-if (y < minY) y = minY;
-if (y > maxY) y = maxY;
+		if (x < minX) x = minX;
+		if (x > maxX) x = maxX;
+		if (y < minY) y = minY;
+		if (y > maxY) y = maxY;
 
-map.setCenter(new google.maps.LatLng(y, x));
-});
+		map.setCenter(new google.maps.LatLng(y, x));
+	});
 
 
 }
 
 //MARKERS END
 
-function addNewMarker(id,type,place) {
+function addNewMarker(id, type, place) {
 	var markername = "marker" + id;
 	var infoname = "info" + id;
-	var markerinfo = type+" from "+place;
+	var markerinfo = type + " from " + place;
 	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
@@ -514,13 +514,17 @@ var requestClick = function () {
 	}
 };
 
-function copyToClipboard() {
-	var $temp = $("<input>");
-	$("body").append($temp);
-	$temp.val($('#orderNumberSpot').text()).select();
-	document.execCommand("copy");
-	$temp.remove();
-  }
+const copyToClipboard = num => {
+	const el = document.createElement('textarea');
+	el.value = num;
+	el.setAttribute('readonly', '');
+	el.style.position = 'absolute';
+	el.style.left = '-9999px';
+	document.body.appendChild(el);
+	el.select();
+	document.execCommand('copy');
+	document.body.removeChild(el);
+};
 
 var okClick = function () {
 	hideOnPage();
@@ -549,15 +553,15 @@ var hideRequest = function () {
 
 var getOrder = function (id) {
 	var navigator = document.getElementById('navigator');
-	navigator.pushPage('order.html').then(function() {
+	navigator.pushPage('order.html').then(function () {
 		var type = document.getElementById("orderType");
 		var num = document.getElementById("coffeeNum");
 		var delivery = document.getElementById("delivery");
 
-		type.innerHTML = orders[0].order[0]+ " from " + orders[0].order[1];
+		type.innerHTML = orders[0].order[0] + " from " + orders[0].order[1];
 		num.append(orders[0].order[2]);
 		delivery.append("D-huset");
-	  });
+	});
 };
 
 var removeOrder = function () {
@@ -577,19 +581,17 @@ var placeOrder = function () {
 	var addInfo = document.getElementById("addInfo").value;
 	var toast = document.getElementById("orderToast");
 	var toastCode = document.getElementById("code");
-
-	/*$("#available").append("<ons-card><div class='title'>"+ number + " " + type + " from " + place + "</div></ons-card>");
-	hideRequest(); */
-
 	var rand = getId();
 
 	var arr = [type, place, number, requestName, addInfo];
 	var obj = { id: rand, order: arr };
+
 	orders.push(obj);
 	updateOrders();
 	toastCode.append(rand);
 	toast.toggle();
-	addNewMarker(rand,type,place);
+	copyToClipboard(rand);
+	addNewMarker(rand, type, place);
 	requestClick();
 }
 
@@ -609,7 +611,7 @@ var getId = function () {
 var updateOrders = function () {
 	$("#available").html("");
 	for (var i = 0; i < orders.length; i++) {
-		$("#available").append("<ons-card id='" + orders[i].id + "'onclick='getOrder("+ orders[i].id +")'><div class='title'>" + orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
+		$("#available").append("<ons-card id='" + orders[i].id + "'onclick='getOrder(" + orders[i].id + ")'><div class='title'>" + orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
 	}
 }
 //End of Order functions
