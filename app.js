@@ -542,10 +542,15 @@ var getOrder = function (id) {
 		var num = document.getElementById("coffeeNum");
 		var name = document.getElementById("orderedBy");
 		var delivery = document.getElementById("delivery");
-
-		type.innerHTML = orders[0].order[0] + " from " + orders[0].order[1];
-		num.append(orders[0].order[2]);
-		name.append(orders[0].order[3])
+		var currentOrder = "";
+		for (var i = 0; i < orders.length; i++) {
+			if (orders[i].id === id) {
+				currentOrder = orders[i];
+			}
+		}
+		type.innerHTML = currentOrder.order[0] + " from " + currentOrder.order[1];
+		num.append(currentOrder.order[2]);
+		name.append(currentOrder.order[3])
 		delivery.append("D-huset");
 	});
 };
