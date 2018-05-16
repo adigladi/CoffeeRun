@@ -8,7 +8,12 @@ setInterval(function() {
 
 var map;
 var mapType = 'roadmap';
+<<<<<<< HEAD
 var startzoom = 16;
+=======
+var startzoom = 15;
+var markernr = 7;
+>>>>>>> c785a370cf8eb38b141eca71a4e0df2e2c477594
 
 function Zoomplus() {
 	map.setZoom(map.getZoom() + 1);
@@ -439,6 +444,36 @@ function initMap() {
 	marker7.addListener('click', function () {
 		infowindow7.open(map, marker7);
 	});
+
+
+	    // Map bounds
+var strictBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(59.344249, 18.055795),
+    new google.maps.LatLng(59.357791, 18.080514) 
+  );
+
+// Listen for the dragend event
+google.maps.event.addListener(map, 'bounds_changed', function() {
+if (strictBounds.contains(map.getCenter())) return;
+
+// We're out of bounds - Move the map back within the bounds
+var c = map.getCenter(),
+x = c.lng(),
+y = c.lat(),
+maxX = strictBounds.getNorthEast().lng(),
+maxY = strictBounds.getNorthEast().lat(),
+minX = strictBounds.getSouthWest().lng(),
+minY = strictBounds.getSouthWest().lat();
+
+if (x < minX) x = minX;
+if (x > maxX) x = maxX;
+if (y < minY) y = minY;
+if (y > maxY) y = maxY;
+
+map.setCenter(new google.maps.LatLng(y, x));
+});
+
+
 }
 
 //MARKERS END
