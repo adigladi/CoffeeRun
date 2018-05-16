@@ -631,6 +631,7 @@ var coffeeRun = function (idIn, name) {
 			orders[i].order.push(name);
 			runs.push(orders[i]);
 			orders.splice(i, 1);
+			writeOrderData(orders, runs);
 			updateOrders();
 		}
 	}
@@ -640,6 +641,7 @@ var removeRun = function (idIn) {
 	for (var i = 0; i < runs.length; i++) {
 		if (runs[i].id === idIn) {
 			runs.splice(i, 1);
+			writeOrderData(orders, runs);
 			updateOrders();
 		}
 	}
@@ -673,6 +675,7 @@ var placeOrder = function () {
 
 	orders.push(obj);
 	updateOrders();
+	writeOrderData(orders, runs);
 	toastCode.innerHTML = "Order code copied to clipboard: " + rand;
 	toast.toggle();
 	copyToClipboard(rand);
@@ -710,7 +713,27 @@ var updateOrders = function () {
 var database = firebase.database();
 
 function getOrderData() {
-	return database.ref('/coffeeRequests').once('value').then(function (snapshot) {
+	return database.ref().once('value').then(function (snapshot) {
+		if (typeof snapshot.val().available !== 'undefined' && typeof snapshot.val().inProgress !== 'undefined') {
+			orders = snapshot.val().available;
+			runs = snapshot.val().inProgress;
+			console.log("both not undefined");
+			updateOrders();
+		} else if (typeof snapshot.val().available !== 'undefined') {
+			orders = snapshot.val().available;
+			runs = [];
+			console.log("available not undefined");
+			updateOrders();
+		} else if (typeof snapshot.val().inProgress !== 'undefined') {
+			console.log("inProgress not undefined");
+			orders = [];
+			runs = snapshot.val().inProgress;
+			updateOrders();
+		} else {
+			orders = [];
+			runs = [];
+			updateOrders();
+		}
 		console.log(snapshot.val());
 	});
 }
@@ -718,14 +741,14 @@ function getOrderData() {
 //Function to write to Firebase
 function writeOrderData(availableRuns, inProgressRuns) {
 	var updates = {};
-	updates['/available'] = "availableRuns";
-	updates['/inProgress'] = "inProgressRuns";
-	firebase.database().ref('/coffeeRequests').update(updates);
+	updates['/available'] = availableRuns;
+	updates['/inProgress'] = inProgressRuns;
+	firebase.database().ref().update(updates);
 }
 
 //writeOrderData();
 //getOrderData();
 
 firebase.database().ref().on('value', function (snapshot) {
-	console.log(snapshot.val());
+	getOrderData();
 });
