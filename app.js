@@ -575,6 +575,8 @@ var placeOrder = function () {
 	var number = document.getElementById("coffeeNumber").value;
 	var requestName = document.getElementById("requestName").value;
 	var addInfo = document.getElementById("addInfo").value;
+	var toast = document.getElementById("orderToast");
+	var toastCode = document.getElementById("code");
 
 	/*$("#available").append("<ons-card><div class='title'>"+ number + " " + type + " from " + place + "</div></ons-card>");
 	hideRequest(); */
@@ -585,8 +587,8 @@ var placeOrder = function () {
 	var obj = { id: rand, order: arr };
 	orders.push(obj);
 	updateOrders();
-	console.log(orders);
-	$('#orderNumberSpot').html('Your order code is: '+rand);
+	toastCode.append(rand);
+	toast.toggle();
 	addNewMarker(rand,type,place);
 	requestClick();
 }

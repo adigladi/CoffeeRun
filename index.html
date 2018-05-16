@@ -50,19 +50,19 @@
 				<div id="requestPage" style="display: none; overflow-y: auto;">
 					<input id="requestName" type="text" placeholder="Your name" />
 					<ons-select id="coffeeType">
-						<option value ="Latte" selected="true" disabled="disabled">Coffee Type</option>
+						<option value="Latte" selected="true" disabled="disabled">Coffee Type</option>
 						<option value="Latte">Latte</option>
 						<option value="Cappuccino">Cappuccino</option>
 						<option value="Flat White">Flat White</option>
 						<option value="Ice Coffee">Ice Coffee</option>
-						</ons-select>
+					</ons-select>
 					<ons-select id="coffeePlace">
-						<option value ="Open" selected="true" disabled="disabled">Coffee Place</option>
+						<option value="Open" selected="true" disabled="disabled">Coffee Place</option>
 						<option value="Open">Open</option>
 						<option value="KTH Entré">KTH Entré</option>
 						<option value="KTH Biblioteket">KTH Biblioteket</option>
 						<option value="Syster o Rorb">Syster o Rorb</option>
-						</ons-select>
+					</ons-select>
 					<ons-select id="coffeeNumber">
 						<option value="1" selected="true" disabled="disabled">Number of Coffees</option>
 						<option value="1">1</option>
@@ -70,14 +70,17 @@
 						<option value="3">3</option>
 						<option value="4">4</option>
 						<option value="5">5</option>
-						</ons-select>
+					</ons-select>
 					<div id="additionalInfo">
 						<textarea class="textarea" id="addInfo" rows="3" placeholder="Additional Info"></textarea>
 					</div>
 					<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
 				</div>
-				<div id="orderNumberPage" style="display: none; overflow-y: auto;"><p id="orderNumberSpot">Your order code is: </p><button id="okButton" onclick="okClick()">Okey</button></div>
 			</div>
+			<ons-toast id="orderToast" animation="fall">
+				<p id="code">Your order code is: </p>
+				<button onclick="orderToast.hide()">ok</button>
+			</ons-toast>
 		</ons-page>
 	</template>
 
