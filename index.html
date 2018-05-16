@@ -30,7 +30,7 @@
 <body>
 	<ons-navigator animation="lift" swipeable id="navigator">
 		<ons-page>
-			<ons-tabbar id="tabbar" position="bottom">
+			<ons-tabbar id="tabbar" position="auto">
 				<ons-tab page="map.html" label="Map" icon="md-walk" active>
 				</ons-tab>
 				<ons-tab page="home.html" label="Runs" icon="fa-coffee">
@@ -48,27 +48,35 @@
 				</div>
 
 				<div id="requestPage" style="display: none; overflow-y: auto;">
+					<input id="requestName" type="text" placeholder="Your name" />
 					<ons-select id="coffeeType">
+						<option selected="true" disabled="disabled">Coffee Type</option>
 						<option value="Latte">Latte</option>
 						<option value="Cappuccino">Cappuccino</option>
 						<option value="Flat White">Flat White</option>
 						<option value="Ice Coffee">Ice Coffee</option>
-					</ons-select>
+						</ons-select>
 					<ons-select id="coffeePlace">
+						<option selected="true" disabled="disabled">Coffee Place</option>
 						<option value="Open">Open</option>
 						<option value="KTH Entré">KTH Entré</option>
 						<option value="KTH Biblioteket">KTH Biblioteket</option>
 						<option value="Syster o Rorb">Syster o Rorb</option>
-					</ons-select>
-					<p id="noCoffeeHeadline">No. of coffes: </p>
-					<input id="coffeeNumber" type="number" />
+						</ons-select>
+					<ons-select id="coffeeNumber">
+						<option selected="true" disabled="disabled">Number of Coffees</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						</ons-select>
 					<div id="additionalInfo">
 						<textarea class="textarea" id="addInfo" rows="3" placeholder="Additional Info"></textarea>
 					</div>
-					<p id="noCoffeeHeadline">Your name: </p>
-					<input id="requestName" type="text" />
 					<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
 				</div>
+				<div id="orderNumberPage" style="display: none; overflow-y: auto;"><p id="orderNumberSpot">Your order code is: </p><button id="okButton" onclick="okClick()">Okey</button></div>
 			</div>
 		</ons-page>
 	</template>
@@ -79,7 +87,7 @@
 			<div id="available"></div>
 			<h1>In progress runs</h1>
 			<ons-card id="relax2button">
-				<div class="title" onclick="getOrder(self)">COFFEE FROM 7-11</div>
+				<div class="title" onclick="getOrder()">COFFEE FROM 7-11</div>
 			</ons-card>
 			<ons-card id="relax3button">
 				<div class="title">ICE COFFEE FROM 7-11</div>

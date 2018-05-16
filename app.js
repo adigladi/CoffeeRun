@@ -9,7 +9,6 @@ setInterval(function() {
 var map;
 var mapType = 'roadmap';
 var startzoom = 16;
-var markernr = 7;
 
 function Zoomplus() {
 	map.setZoom(map.getZoom() + 1);
@@ -440,16 +439,44 @@ function initMap() {
 	marker7.addListener('click', function () {
 		infowindow7.open(map, marker7);
 	});
+
+
+	    // Map bounds
+var strictBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(59.344249, 18.055795),
+    new google.maps.LatLng(59.357791, 18.080514) 
+  );
+
+// Listen for the dragend event
+google.maps.event.addListener(map, 'bounds_changed', function() {
+if (strictBounds.contains(map.getCenter())) return;
+
+// We're out of bounds - Move the map back within the bounds
+var c = map.getCenter(),
+x = c.lng(),
+y = c.lat(),
+maxX = strictBounds.getNorthEast().lng(),
+maxY = strictBounds.getNorthEast().lat(),
+minX = strictBounds.getSouthWest().lng(),
+minY = strictBounds.getSouthWest().lat();
+
+if (x < minX) x = minX;
+if (x > maxX) x = maxX;
+if (y < minY) y = minY;
+if (y > maxY) y = maxY;
+
+map.setCenter(new google.maps.LatLng(y, x));
+});
+
+
 }
 
 //MARKERS END
 
-function addNewMarker() {
-	markernr += 1;
-	var markername = "marker" + markernr;
-	var infomane = "infowindow" + markernr;
-	var markerinfo = prompt("Description of the marker:");
-	$("#available").append("<ons-card id=" + markername + "><div class='title'>" + markerinfo + "</div></ons-card>")
+function addNewMarker(id,type,place) {
+	var markername = "marker" + id;
+	var infoname = "info" + id;
+	var markerinfo = type+" from "+place;
 	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
@@ -483,7 +510,31 @@ var requestClick = function () {
 	}
 	else {
 		hideRequest();
+		showOnPage();
 	}
+};
+
+function copyToClipboard() {
+	var $temp = $("<input>");
+	$("body").append($temp);
+	$temp.val($('#orderNumberSpot').text()).select();
+	document.execCommand("copy");
+	$temp.remove();
+  }
+
+var okClick = function () {
+	hideOnPage();
+	copyToClipboard();
+}
+
+var showOnPage = function () {
+	document.getElementById('orderNumberPage').style.display = 'block';
+	document.getElementById('map').style.filter = 'blur(5px)';
+};
+
+var hideOnPage = function () {
+	document.getElementById('orderNumberPage').style.display = 'none';
+	document.getElementById('map').style.filter = 'blur(0px)';
 };
 
 var showRequest = function () {
@@ -534,6 +585,9 @@ var placeOrder = function () {
 	var obj = { id: rand, order: arr };
 	orders.push(obj);
 	updateOrders();
+	console.log(orders);
+	$('#orderNumberSpot').html('Your order code is: '+rand);
+	addNewMarker(rand,type,place);
 	requestClick();
 }
 
