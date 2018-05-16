@@ -483,7 +483,22 @@ var requestClick = function () {
 	}
 	else {
 		hideRequest();
+		showOnPage();
 	}
+};
+
+var okClick = function () {
+	hideOnPage();
+}
+
+var showOnPage = function () {
+	document.getElementById('orderNumberPage').style.display = 'block';
+	document.getElementById('map').style.filter = 'blur(5px)';
+};
+
+var hideOnPage = function () {
+	document.getElementById('orderNumberPage').style.display = 'none';
+	document.getElementById('map').style.filter = 'blur(0px)';
 };
 
 var showRequest = function () {
@@ -527,6 +542,7 @@ var placeOrder = function () {
 	orders.push(obj);
 	updateOrders();
 	console.log(orders);
+	$('#orderNumberSpot').html('Your order code is: '+rand);
 	requestClick();
 }
 
