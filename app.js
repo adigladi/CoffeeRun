@@ -510,12 +510,11 @@ var requestClick = function () {
 	}
 	else {
 		hideRequest();
-		showOnPage();
 	}
 };
 
-const copyToClipboard = num => {
-	const el = document.createElement('textarea');
+var copyToClipboard = function(num) {
+	var el = document.createElement('textarea');
 	el.value = num;
 	el.setAttribute('readonly', '');
 	el.style.position = 'absolute';
@@ -524,21 +523,6 @@ const copyToClipboard = num => {
 	el.select();
 	document.execCommand('copy');
 	document.body.removeChild(el);
-};
-
-var okClick = function () {
-	hideOnPage();
-	copyToClipboard();
-}
-
-var showOnPage = function () {
-	document.getElementById('orderNumberPage').style.display = 'block';
-	document.getElementById('map').style.filter = 'blur(5px)';
-};
-
-var hideOnPage = function () {
-	document.getElementById('orderNumberPage').style.display = 'none';
-	document.getElementById('map').style.filter = 'blur(0px)';
 };
 
 var showRequest = function () {
@@ -588,7 +572,7 @@ var placeOrder = function () {
 
 	orders.push(obj);
 	updateOrders();
-	toastCode.append(rand);
+	toastCode.innerHTML = "Order code copied to clipboard: "+rand;
 	toast.toggle();
 	copyToClipboard(rand);
 	addNewMarker(rand, type, place);

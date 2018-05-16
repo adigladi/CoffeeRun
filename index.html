@@ -78,7 +78,7 @@
 				</div>
 			</div>
 			<ons-toast id="orderToast" animation="fall">
-				<p id="code">Order code copied to clipboard: </p>
+				<p id="code"></p>
 				<button onclick="orderToast.hide()">ok</button>
 			</ons-toast>
 		</ons-page>
@@ -113,10 +113,8 @@
 						<ons-list-item>Milk</ons-list-item>
 					</ons-list>
 					<div>
-						<ons-button>Back
-						</ons-button>
-						<ons-button>Make Coffee Run
-						</ons-button>
+						<ons-button onclick="removeOrder()">Back</ons-button>
+						<ons-button>Make Coffee Run</ons-button>
 					</div>
 				</div>
 			</ons-card>
