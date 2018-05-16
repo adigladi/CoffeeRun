@@ -227,3 +227,18 @@ body .page__background, .select-input {
   margin-bottom: 5%;
   cursor: pointer;
 }
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: white;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#addInfo {
+  background-color: white;
+}
