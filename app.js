@@ -1,3 +1,11 @@
+//console.log(firebase.database());
+
+/* Fungerande funktion för att logga "bajs" var 3:e sekund.
+setInterval(function() {
+	console.log("bajs!");
+}, 3*1000);
+*/
+
 var map;
 var mapType = 'roadmap';
 var startzoom = 16;
@@ -439,10 +447,10 @@ function initMap() {
 
 function addNewMarker() {
 	markernr += 1;
-	var markername = "marker"+markernr;
-	var infomane = "infowindow"+markernr;
+	var markername = "marker" + markernr;
+	var infomane = "infowindow" + markernr;
 	var markerinfo = prompt("Description of the marker:");
-	$("#available").append("<ons-card id="+markername+"><div class='title'>"+markerinfo+"</div></ons-card>")
+	$("#available").append("<ons-card id=" + markername + "><div class='title'>" + markerinfo + "</div></ons-card>")
 	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
@@ -470,15 +478,96 @@ window.fn.pushPage = function (page, anim) {
 	}
 };
 
-var showRequest = function() {
-  document.getElementById('requestPage').style.display = 'block';
-	document.getElementById('map').style.filter = 'blur(5px)';
-	//document.getElementById('tabbar').style.filter = 'blur(5px)';
+var requestClick = function () {
+	if (document.getElementById('requestPage').style.display === 'none') {
+		showRequest();
+	}
+	else {
+		hideRequest();
+	}
 };
 
-var hideDialog = function(id) {
-  document
-    .getElementById(id)
-    .hide();
+var showRequest = function () {
+	document.getElementById('requestPage').style.display = 'block';
+	document.getElementById('map').style.filter = 'blur(5px)';
+};
+
+var hideRequest = function () {
+	document.getElementById('requestPage').style.display = 'none';
+	document.getElementById('map').style.filter = 'blur(0px)';
+};
+
+var getOrder = function () {
+	var navigator = document.getElementById('navigator');
+	navigator.pushPage('order.html');
+};
+
+var removeOrder = function () {
+	var navigator = document.getElementById('navigator');
+	navigator.popPage();
 };
 //End of ONSEN UI
+
+//Order functions
+var orders = [];
+
+var placeOrder = function () {
+	var type = document.getElementById("coffeeType").value;
+	var place = document.getElementById("coffeePlace").value;
+	var number = document.getElementById("coffeeNumber").value;
+	var requestName = document.getElementById("requestName").value;
+	var addInfo = document.getElementById("addInfo").value;
+
+	/*$("#available").append("<ons-card><div class='title'>"+ number + " " + type + " from " + place + "</div></ons-card>");
+	hideRequest(); */
+
+	var rand = getId();
+
+	var arr = [type, place, number, requestName, addInfo];
+	var obj = { id: rand, order: arr };
+	orders.push(obj);
+	updateOrders();
+	console.log(orders);
+	requestClick();
+}
+
+var getId = function () {
+	var ids = [];
+	for (var i; i < orders.length; i++) {
+		ids.push(orders[i].id);
+	}
+	var num = Math.floor(Math.random() * 1000);
+	do {
+		num = Math.floor(Math.random() * 1000);
+	}
+	while ($.inArray(num, ids) > -1);
+	return num;
+}
+
+var updateOrders = function () {
+	$("#available").html("");
+	for (var i = 0; i < orders.length; i++) {
+		$("#available").append("<ons-card id=" + orders[i].id + "><div class='title'>" + orders[i].order[2] + " " + orders[i].order[0] + " from " + orders[i].order[1] + "</div></ons-card>");
+	}
+}
+//End of Order functions
+
+//Function to read from Firebase
+var database = firebase.database();
+
+function getOrderData() {
+	return database.ref('/coffeeRequests').once('value').then(function (snapshot) {
+		console.log(snapshot.val());
+	});
+}
+
+//Function to write to Firebase
+function writeOrderData(availableRuns, inProgressRuns) {
+	var updates = {};
+	updates['/available'] = "availableRuns";
+	updates['/inProgress'] = "inProgressRuns";
+	firebase.database().ref('/coffeeRequests').update(updates);
+}
+
+//writeOrderData();
+//getOrderData();

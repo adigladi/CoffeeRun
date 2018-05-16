@@ -28,6 +28,8 @@ html, body {
 
 #requestIcon img{
   width: 100%;
+  -webkit-filter: drop-shadow(5px 5px 5px rgb(80, 80, 80));
+  filter: drop-shadow(5px 5px 5px rgb(80, 80, 80));
 }
 
 #requestPage{
@@ -56,15 +58,33 @@ html, body {
   display: inline-block;
   font-size: 16px;
   margin: 2px 2px;
+  margin-bottom: 5%;
   cursor: pointer;
 }
 
-#coffeeType, #coffeePlace, #coffeeNumber, .textarea{
+#coffeeType, #coffeePlace, #coffeeNumber, #requestName, #additionalInfo {
+  margin-left: 20%;
+  margin-bottom: 5%;
   text-align: center;
   float: center;
   display: block;
-  width: 100%;
+  width: 60%;
 }
+
+#coffeeNumber {
+  width: 40%;
+  margin-left: 30%;
+}
+
+#coffeeType {
+  margin-top: 15%;
+}
+
+
+#noCoffeeHeadline {
+  color: white !important;
+}
+
 
 #map {
     height: 100%;
