@@ -8,7 +8,7 @@ setInterval(function() {
 
 var map;
 var mapType = 'roadmap';
-var startzoom = 16;
+var startzoom = 15;
 var markernr = 7;
 
 function Zoomplus() {
