@@ -514,8 +514,17 @@ var requestClick = function () {
 	}
 };
 
+function copyToClipboard() {
+	var $temp = $("<input>");
+	$("body").append($temp);
+	$temp.val($('#orderNumberSpot').text()).select();
+	document.execCommand("copy");
+	$temp.remove();
+  }
+
 var okClick = function () {
 	hideOnPage();
+	copyToClipboard();
 }
 
 var showOnPage = function () {
