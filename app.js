@@ -9,7 +9,6 @@ setInterval(function() {
 var map;
 var mapType = 'roadmap';
 var startzoom = 16;
-var markernr = 7;
 
 function Zoomplus() {
 	map.setZoom(map.getZoom() + 1);
@@ -444,12 +443,10 @@ function initMap() {
 
 //MARKERS END
 
-function addNewMarker() {
-	markernr += 1;
-	var markername = "marker" + markernr;
-	var infomane = "infowindow" + markernr;
-	var markerinfo = prompt("Description of the marker:");
-	$("#available").append("<ons-card id=" + markername + "><div class='title'>" + markerinfo + "</div></ons-card>")
+function addNewMarker(id,type,place) {
+	var markername = "marker" + id;
+	var infoname = "info" + id;
+	var markerinfo = type+" from "+place;
 	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
@@ -544,6 +541,7 @@ var placeOrder = function () {
 	updateOrders();
 	console.log(orders);
 	$('#orderNumberSpot').html('Your order code is: '+rand);
+	addNewMarker(rand,type,place);
 	requestClick();
 }
 
