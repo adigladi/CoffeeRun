@@ -7,14 +7,14 @@ html, body {
 
 /* GOOGLE MAP CSS */
 #main {
-	height: 100%;
-	width: 100%;
-	position: relative;
-/*	-webkit-filter: blur(5px);
-	-moz-filter: blur(5px);
-	-o-filter: blur(5px);
-	-ms-filter: blur(5px);
-	filter: blur(5px);
+  height: 100%;
+  width: 100%;
+  position: relative;
+/*  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 */
 }
 
@@ -92,18 +92,13 @@ html, body {
   cursor: pointer;
 }
 
-#coffeeType, #coffeePlace, #coffeeNumber, #requestName, #additionalInfo {
+#coffeeType, #coffeePlace, #requestName, #additionalInfo {
   margin-left: 20%;
   margin-bottom: 5%;
   text-align: center;
   float: center;
   display: block;
   width: 60%;
-}
-
-#coffeeNumber {
-  width: 40%;
-  margin-left: 30%;
 }
 
 #coffeeType {
