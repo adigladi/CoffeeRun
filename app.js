@@ -717,3 +717,7 @@ function writeOrderData(availableRuns, inProgressRuns) {
 
 //writeOrderData();
 //getOrderData();
+
+firebase.database().ref().on('value', function (snapshot) {
+	console.log(snapshot.val());
+});
