@@ -30,7 +30,7 @@
 <body>
 	<ons-navigator animation="lift" swipeable id="navigator">
 		<ons-page>
-			<ons-tabbar id="tabbar" position="bottom">
+			<ons-tabbar id="tabbar" position="auto">
 				<ons-tab page="map.html" label="Map" icon="md-walk" active>
 				</ons-tab>
 				<ons-tab page="home.html" label="Runs" icon="fa-coffee">
@@ -69,7 +69,7 @@
 					<input id="requestName" type="text" />
 					<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
 				</div>
-				<div id="orderNumberPage" style="display: none; overflow-y: auto;"><p id="orderNumberSpot">Your order code is:</p><button id="okButton" onclick="okClick()">Okey</button></div>
+				<div id="orderNumberPage" style="display: none; overflow-y: auto;"><p id="orderNumberSpot">Your order code is: </p><button id="okButton" onclick="okClick()">Okey</button></div>
 			</div>
 		</ons-page>
 	</template>
@@ -80,7 +80,7 @@
 			<div id="available"></div>
 			<h1>In progress runs</h1>
 			<ons-card id="relax2button">
-				<div class="title" onclick="getOrder(self)">COFFEE FROM 7-11</div>
+				<div class="title" onclick="getOrder()">COFFEE FROM 7-11</div>
 			</ons-card>
 			<ons-card id="relax3button">
 				<div class="title">ICE COFFEE FROM 7-11</div>
