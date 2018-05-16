@@ -468,6 +468,13 @@ function initMap() {
 		map.setCenter(new google.maps.LatLng(y, x));
 	});
 
+	   var range = document.getElementById('rangevalue');
+    var money = $('#moneyplace');
+    range.addEventListener('input', sliderChange);
+    
+    function sliderChange() {
+      money.html(this.value + ' SEK')
+    }
 
 }
 
@@ -663,11 +670,12 @@ var placeOrder = function () {
 	var toastCode = document.getElementById("code");
 	var rand = getId();
 
-	if(type == "" || place == "" || number == "" || requestName == "" || requestPlace == ""){
-		alert("Please fill out the entire form!")
-	}
-
-	else {
+	    var range = document.getElementById('rangevalue');
+	
+	    if(type == "" || place == "" || number == "" || requestName == "" || requestPlace == ""){
+	        ons.notification.alert('Please fill out the entire form!');
+	    }
+	    else {
 
 
 	var arr = [type, place, number, requestName, requestPlace, addInfo];
@@ -682,6 +690,7 @@ var placeOrder = function () {
 	addNewMarker(rand, type, place);
 	requestClick();
 	}
+	
 }
 
 var getId = function () {
@@ -695,6 +704,7 @@ var getId = function () {
 	}
 	while ($.inArray(num, ids) > -1);
 	return num;
+	
 }
 
 var updateOrders = function () {
