@@ -42,7 +42,7 @@ html, body {
   height: 80%;
   width: 80%;
 
-  background-color: #4e280d;
+  background-color: beige;
   border-radius: 2px;
   border: 2px solid black;
   text-align: center;
@@ -82,7 +82,7 @@ html, body {
 
 
 #noCoffeeHeadline {
-  color: white !important;
+  color: black !important;
 }
 
 
@@ -119,8 +119,8 @@ html, body {
 
 /* ONSEN UI CSS */
 body .page__background, .select-input {
-  background-color: #4e280d;
-  color: white !important;
+  background-color: beige;
+  color: black !important;
 }
 /* END OF ONSEN UI */
 
