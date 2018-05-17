@@ -5,10 +5,8 @@
 	<title>Coffe Run</title>
 	<meta name="viewport" content="initial-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="apple-touch-icon"
-	href="./webappicon.png"/>
-	<link rel="apple-touch-icon-precomposed"
-	href="./webappicon.png"/>
+	<link rel="apple-touch-icon" href="./webappicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="./webappicon.png" />
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="manifest" href="manifest.json">
@@ -53,95 +51,107 @@
 					<img src="images/addrun.png" onclick="requestClick()"></img>
 				</div>
 
-				<ons-card id="requestPage">
-						<div class="title">Order Coffee</div>
-						<div class="content" id="first" style="display: none;">
-							<ons-card onclick="nextCard()">
-								<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-								<div class="title">Latte</div>
-							</ons-card>
-							<ons-card onclick="nextCard()">
-								<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-								<div class="title">Cappuccino</div>
-							</ons-card>
-							<ons-card onclick="nextCard()">
-								<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-								<div class="title">Flat White</div>
-							</ons-card>
-							<ons-card onclick="nextCard()">
-								<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-								<div class="title">Ice Coffee</div>
-							</ons-card>
-						</div>
+				<ons-card id="requestPage" style="overflow-y: scroll;">
+					<div class="title">Order Coffee</div>
+					<div class="content" id="first" style="display: none;">
+						<ons-card onclick="nextCard()">
+							<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">Latte</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">Cappuccino</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">Flat White</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">Ice Coffee</div>
+						</ons-card>
+					</div>
 
-						<div class="content" id="second">
-								<ons-card onclick="nextCard()">
-									<img src="images/open.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-									<div class="title">Open</div>
-								</ons-card>
-								<ons-card onclick="nextCard()">
-									<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-									<div class="title">KTH Entré</div>
-								</ons-card>
-								<ons-card onclick="nextCard()">
-									<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-									<div class="title">KTH Biblioteket</div>
-								</ons-card>
-								<ons-card onclick="nextCard()">
-									<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
-									<div class="title">Syster o Bror</div>
-								</ons-card>
-							</div>
-	
-						<div class="content" id="third" style="display: none;">
-							<ons-input id="requestName" type="text" placeholder="Your name"></ons-input>
-							<ons-select id="coffeeType">
-								<option value="Latte" selected="true" disabled="disabled">Coffee Type</option>
-								<option value="Latte">Latte</option>
-								<option value="Cappuccino">Cappuccino</option>
-								<option value="Flat White">Flat White</option>
-								<option value="Ice Coffee">Ice Coffee</option>
-							</ons-select>
-							<ons-select id="coffeePlace">
-								<option value="Open" selected="true" disabled="disabled">Coffee Place</option>
-								<option value="Open">Open</option>
-								<option value="KTH Entré">KTH Entré</option>
-								<option value="KTH Biblioteket">KTH Biblioteket</option>
-								<option value="Syster o Rorb">Syster o Rorb</option>
-							</ons-select>
-							<ons-select id="coffeeNumber">
-								<option value="1" selected="true" disabled="disabled">Number of Coffees</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</ons-select>
-	
-							<ons-row>
-								<ons-col width="40px" style="text-align: right; line-height: 31px;">
-	
-									<i class="zmdi zmdi-money"></i>
-								</ons-col>
-								<ons-col>
-									<ons-range id="rangevalue" style="width: 70%;" min="0" max="20" value="10"></ons-range>
-	
-									<p id="moneyplace">10 SEK</p>
-								</ons-col>
-	
-								<ons-col width="40px" style="text-align: left; line-height: 31px;">
-	
-									<i class="zmdi zmdi-money-box"></i>
-								</ons-col>
-							</ons-row>
-	
-							<input id="requestPlace" type="text" placeholder="Where are you sitting?" />
-							<div id="additionalInfo">
-								<textarea class="textarea" id="addInfo" rows="3" placeholder="Additional Info"></textarea>
-							</div>
-							<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
+					<div class="content" id="second">
+						<ons-card onclick="nextCard()">
+							<img src="images/open.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">Open</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/kthentre.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">KTH Entré</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/bibliotek.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">KTH Biblioteket</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/systerobror.jpg" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">Syster o Bror</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/7eleven.svg" alt="Onsen UI" style="width: 25%; float: right;">
+							<div class="title">7eleven</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+							<img src="images/pressbyran.png" alt="Onsen UI" style="width: 30%; float: right;">
+							<div class="title">Pressbyrån</div>
+						</ons-card>
+						<ons-card onclick="nextCard()">
+								<img src="images/pressbyran.png" alt="Onsen UI" style="width: 30%; float: right;">
+								<div class="title">Pressbyrån</div>
+							</ons-card>
+					</div>
+
+					<div class="content" id="third" style="display: none;">
+						<ons-input id="requestName" type="text" placeholder="Your name"></ons-input>
+						<ons-select id="coffeeType">
+							<option value="Latte" selected="true" disabled="disabled">Coffee Type</option>
+							<option value="Latte">Latte</option>
+							<option value="Cappuccino">Cappuccino</option>
+							<option value="Flat White">Flat White</option>
+							<option value="Ice Coffee">Ice Coffee</option>
+						</ons-select>
+						<ons-select id="coffeePlace">
+							<option value="Open" selected="true" disabled="disabled">Coffee Place</option>
+							<option value="Open">Open</option>
+							<option value="KTH Entré">KTH Entré</option>
+							<option value="KTH Biblioteket">KTH Biblioteket</option>
+							<option value="Syster o Rorb">Syster o Rorb</option>
+						</ons-select>
+						<ons-select id="coffeeNumber">
+							<option value="1" selected="true" disabled="disabled">Number of Coffees</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</ons-select>
+
+						<ons-row>
+							<ons-col width="40px" style="text-align: right; line-height: 31px;">
+
+								<i class="zmdi zmdi-money"></i>
+							</ons-col>
+							<ons-col>
+								<ons-range id="rangevalue" style="width: 70%;" min="0" max="20" value="10"></ons-range>
+
+								<p id="moneyplace">10 SEK</p>
+							</ons-col>
+
+							<ons-col width="40px" style="text-align: left; line-height: 31px;">
+
+								<i class="zmdi zmdi-money-box"></i>
+							</ons-col>
+						</ons-row>
+
+						<input id="requestPlace" type="text" placeholder="Where are you sitting?" />
+						<div id="additionalInfo">
+							<textarea class="textarea" id="addInfo" rows="3" placeholder="Additional Info"></textarea>
 						</div>
-					</ons-card>
+						<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
+					</div>
+				</ons-card>
 			</div>
 			<ons-toast id="orderToast" animation="fall">
 				<p id="code"></p>
@@ -169,7 +179,7 @@
 						<ons-list-header id="coffeeNum">Number of Coffees: </ons-list-header>
 						<ons-list-header id="orderedBy">Ordered by: </ons-list-header>
 						<ons-list-header id="delivery">Delivery to: </ons-list-header>
-						<ons-list-header id="details" >Details: </ons-list-header>
+						<ons-list-header id="details">Details: </ons-list-header>
 					</ons-list>
 					<div id="detaildiv">
 						<ons-button onclick="removeOrder()">Back</ons-button>
