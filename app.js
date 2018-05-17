@@ -550,6 +550,7 @@ var copyToClipboard = function (num) {
 var showRequest = function () {
 	document.getElementById('requestPage').style.display = 'block';
 	document.getElementById('map').style.filter = 'blur(5px)';
+	makeOrder();
 };
 
 var hideRequest = function () {
@@ -671,6 +672,10 @@ var removeRun = function (idIn) {
 //End of ONSEN UI
 
 //Order functions
+var makeOrder = function () {
+	document.getElementsById("chooseType").addEventListener('click', function(){ alert(this.lastElementChild.innerHTML);})
+};
+
 var orders = [];
 var runs = [];
 
