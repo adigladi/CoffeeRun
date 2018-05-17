@@ -572,7 +572,7 @@ var getOrder = function (id) {
 		var num = document.getElementById("coffeeNum");
 		var name = document.getElementById("orderedBy");
 		var delivery = document.getElementById("delivery");
-		var details = document.getElementById("details");
+		var details = document.getElementById("orderInfo");
 		var runBtn = document.getElementById("runBtn");
 		document.getElementById("resolveBtn").style.display = 'none';
 		var currentOrder = "";
@@ -614,7 +614,7 @@ var viewOrder = function (id) {
 		var num = document.getElementById("coffeeNum");
 		var name = document.getElementById("orderedBy");
 		var delivery = document.getElementById("delivery");
-		var details = document.getElementById("details");
+		var details = document.getElementById("orderInfo");
 		var resolveBtn = document.getElementById("resolveBtn");
 		document.getElementById("runBtn").style.display = 'none';
 		var currentRun = "";
@@ -628,7 +628,8 @@ var viewOrder = function (id) {
 		num.append(currentRun.order[2]);
 		name.append(currentRun.order[3])
 		delivery.append(currentRun.order[4]);
-		details.append(currentRun.order[5]);
+		details.append(String(currentRun.order[5]));
+		console.log(currentRun.order[5]);
 
 		resolveBtn.addEventListener("click", function () {
 
@@ -706,6 +707,7 @@ var makeOrder = function () {
 			first.style.display = 'none';
 			title.innerHTML = type;
 			second.style.display = 'block';
+			coffeeNo.innerHTML = num;
 			document.getElementById("plus").addEventListener('click', function() {num += 1; coffeeNo.innerHTML = num});
 			document.getElementById("minus").addEventListener('click', function() {if (num > 1) {num -= 1; coffeeNo.innerHTML = num};});
 			orderBtn.addEventListener('click', function() {
@@ -729,6 +731,13 @@ var makeOrder = function () {
 							}
 							else {
 								placeOrder(type, coffeePlace, num, name, price, orderPlace, info);
+								fourth.style.display = 'none';
+								title.innerHTML = "Order Coffee";
+								first.style.display = 'block';
+								num = 1;
+								document.getElementById("requestName").value = "";
+								orderPlace = "";
+								info = "";
 								hideRequest();
 							}
 						});
@@ -744,6 +753,7 @@ var orders = [];
 var runs = [];
 
 var placeOrder = function (type, place, number, requestName, price, requestPlace, addInfo) {
+	console.log(addInfo);
 	var toast = document.getElementById("orderToast");
 	var toastCode = document.getElementById("code");
 	var rand = getId();
