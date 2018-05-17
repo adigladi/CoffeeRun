@@ -715,16 +715,16 @@ var makeOrder = function () {
 						placeOrderBtn.addEventListener('click', function() {
 							name = document.getElementById("requestName").value;
 							price = document.getElementById('rangevalue').value;
+							console.log(price);
 							orderPlace = document.getElementById("requestPlace").value;
 							info = document.getElementById("addInfo").value;
-							if (type && coffeePlace && num && name && price && orderPlace) {
+							if (type === "" || coffeePlace === "" || num === "" || name === "" || orderPlace === "" || price === "") {
+								ons.notification.alert('Please fill out the entire form!');
+							}
+							else {
 								placeOrder(type, coffeePlace, num, name, price, orderPlace, info);
 								hideRequest();
 							}
-							else {
-								ons.notification.alert('Please fill out the entire form!');
-							}
-							
 						});
 					});
 				});
@@ -738,23 +738,9 @@ var orders = [];
 var runs = [];
 
 var placeOrder = function (type, place, number, requestName, price, requestPlace, addInfo) {
-	/* var type = document.getElementById("coffeeType").value;
-	var place = document.getElementById("coffeePlace").value;
-	var number = document.getElementById("coffeeNumber").value;
-	var requestName = document.getElementById("requestName").value;
-	var requestPlace = document.getElementById("requestPlace").value;
-	var addInfo = document.getElementById("addInfo").value; */
 	var toast = document.getElementById("orderToast");
 	var toastCode = document.getElementById("code");
 	var rand = getId();
-
-	    var range = document.getElementById('rangevalue');
-	
-	    /* if(type == "" || place == "" || number == "" || requestName == "" || requestPlace == ""){
-	        ons.notification.alert('Please fill out the entire form!');
-	    }
-	    else { */
-
 
 	var arr = [type, place, number, requestName, requestPlace, addInfo];
 	var obj = { id: rand, order: arr };
@@ -766,7 +752,6 @@ var placeOrder = function (type, place, number, requestName, price, requestPlace
 	toast.toggle();
 	copyToClipboard(rand);
 	addNewMarker(rand, type, place);
-	requestClick();
 	}
 	
 
