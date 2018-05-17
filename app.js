@@ -495,10 +495,10 @@ function initMap() {
 
 //MARKERS END
 
-function addNewMarker(id, type, place) {
+function addNewMarker(id, name, place) {
 	var markername = "marker" + id;
 	var infoname = "info" + id;
-	var markerinfo = type + " from " + place;
+	var markerinfo = name + " in " + place;
 	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
@@ -512,6 +512,8 @@ function addNewMarker(id, type, place) {
 	map.setCenter(map.getCenter());
 	markername.addListener('click', function () {
 		infoname.open(map, markername);
+		markername.setIcon('./images/markerpurple.png')
+		infoname.setContent('In progress!!')
 	});
 };
 
