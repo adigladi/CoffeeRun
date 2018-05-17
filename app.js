@@ -6,6 +6,23 @@ setInterval(function() {
 }, 3*1000);
 */
 
+var myShakeEvent = new Shake({
+	threshold: 15
+});
+
+// start listening to device motion
+myShakeEvent.start();
+
+// register a shake event
+window.addEventListener('shake', shakeEventDidOccur, false);
+
+//shake event callback
+function shakeEventDidOccur () {
+
+	//put your own code here etc.
+	alert('Shake!');
+}
+
 var map;
 var mapType = 'roadmap';
 var startzoom = 15;
