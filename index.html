@@ -52,7 +52,7 @@
 				</div>
 
 				<ons-card id="requestPage" style="display: none; overflow-y: scroll;">
-					<div class="title">Order Coffee</div>
+					<div id="coffeeTitle" class="title">Order Coffee</div>
 					<div class="content" id="first">
 						<ons-card id="chooseType">
 							<img src="images/latte.jpg" alt="Onsen UI" style="width: 30%; float: right;">
@@ -74,42 +74,42 @@
 
 					<div class="content" id="second" style="display: none;">
 						<ons-list-header id="details">Number of coffees:</ons-list-header><br/>
-						<div class="title">1</div>
-						<ons-fab position="center center">
+						<div id="coffeeNo" class="title">1</div>
+						<ons-fab id="minus" position="center center">
 							<ons-icon icon="md-minus"></ons-icon>
 						</ons-fab>
-						<ons-fab position="center center">
+						<ons-fab id="plus" position="center center">
 							<ons-icon icon="md-plus"></ons-icon>
 						</ons-fab><br/><br/><br/>
-						<ons-button>Next</ons-button>
+						<ons-button id="makeOrderBtn">Next</ons-button>
 					</div>
 
 					<div class="content" id="third" style="display: none;">
-						<ons-card onclick="nextCard()">
+						<ons-card id="choosePlace">
 							<img src="images/open.jpg" alt="Onsen UI" style="width: 30%; float: right;">
 							<div class="title">Open</div>
 						</ons-card>
-						<ons-card onclick="nextCard()">
+						<ons-card id="choosePlace">
 							<img src="images/kthentre.jpg" alt="Onsen UI" style="width: 30%; float: right;">
 							<div class="title">KTH Entré</div>
 						</ons-card>
-						<ons-card onclick="nextCard()">
+						<ons-card id="choosePlace">
 							<img src="images/bibliotek.jpg" alt="Onsen UI" style="width: 30%; float: right;">
 							<div class="title">KTH Biblioteket</div>
 						</ons-card>
-						<ons-card onclick="nextCard()">
+						<ons-card id="choosePlace">
 							<img src="images/systerobror.jpg" alt="Onsen UI" style="width: 30%; float: right;">
 							<div class="title">Syster o Bror</div>
 						</ons-card>
-						<ons-card onclick="nextCard()">
+						<ons-card id="choosePlace">
 							<img src="images/7eleven.svg" alt="Onsen UI" style="width: 25%; float: right;">
 							<div class="title">7eleven</div>
 						</ons-card>
-						<ons-card onclick="nextCard()">
+						<ons-card id="choosePlace">
 							<img src="images/pressbyran.png" alt="Onsen UI" style="width: 30%; float: right;">
 							<div class="title">Pressbyrån</div>
 						</ons-card>
-						<ons-card onclick="nextCard()">
+						<ons-card id="choosePlace">
 							<img src="images/qhuset.png" alt="Onsen UI" style="width: 30%; float: right;">
 							<div class="title">Restaurang Q</div>
 						</ons-card>

@@ -673,29 +673,85 @@ var removeRun = function (idIn) {
 
 //Order functions
 var makeOrder = function () {
-	document.getElementsById("chooseType").addEventListener('click', function(){ alert(this.lastElementChild.innerHTML);})
+	var first = document.getElementById("first");
+	var second = document.getElementById("second");
+	var third = document.getElementById("third");
+	var fourth = document.getElementById("fourth");
+	var orderBtn = document.getElementById("makeOrderBtn");
+	var placeOrderBtn = document.getElementById("placeOrder");
+
+	var title = document.getElementById("coffeeTitle");
+	var coffeeNo = document.getElementById("coffeeNo");
+
+	var num = 1;
+	var type = "";
+	var coffeePlace = "";
+	var name = "";
+	var price = 0;
+	var orderPlace = "";
+	var info = "";
+
+	var typeArray = document.querySelectorAll('#chooseType');
+	typeArray.forEach(function(tElem) {
+		tElem.addEventListener('click', function() {
+			type = this.lastElementChild.innerHTML;
+			first.style.display = 'none';
+			title.innerHTML = type;
+			second.style.display = 'block';
+			document.getElementById("plus").addEventListener('click', function() {num += 1; coffeeNo.innerHTML = num});
+			document.getElementById("minus").addEventListener('click', function() {if (num > 1) {num -= 1; coffeeNo.innerHTML = num};});
+			orderBtn.addEventListener('click', function() {
+				second.style.display = 'none';
+				title.innerHTML = "Choose location:";
+				third.style.display = 'block';
+				document.querySelectorAll('#choosePlace').forEach(function(pElem) {
+					pElem.addEventListener('click', function() {
+						coffeePlace = this.lastElementChild.innerHTML;
+						third.style.display = 'none';
+						title.innerHTML = "Your Info:";
+						fourth.style.display = 'block';
+						placeOrderBtn.addEventListener('click', function() {
+							name = document.getElementById("requestName").value;
+							price = document.getElementById('rangevalue').value;
+							orderPlace = document.getElementById("requestPlace").value;
+							info = document.getElementById("addInfo").value;
+							if (type && coffeePlace && num && name && price && orderPlace) {
+								placeOrder(type, coffeePlace, num, name, price, orderPlace, info);
+								hideRequest();
+							}
+							else {
+								ons.notification.alert('Please fill out the entire form!');
+							}
+							
+						});
+					});
+				});
+			});
+		});
+	});
+	//document.getElementById("chooseType").addEventListener('click', function(){ alert(this.lastElementChild.innerHTML);})
 };
 
 var orders = [];
 var runs = [];
 
-var placeOrder = function () {
-	var type = document.getElementById("coffeeType").value;
+var placeOrder = function (type, place, number, requestName, price, requestPlace, addInfo) {
+	/* var type = document.getElementById("coffeeType").value;
 	var place = document.getElementById("coffeePlace").value;
 	var number = document.getElementById("coffeeNumber").value;
 	var requestName = document.getElementById("requestName").value;
 	var requestPlace = document.getElementById("requestPlace").value;
-	var addInfo = document.getElementById("addInfo").value;
+	var addInfo = document.getElementById("addInfo").value; */
 	var toast = document.getElementById("orderToast");
 	var toastCode = document.getElementById("code");
 	var rand = getId();
 
 	    var range = document.getElementById('rangevalue');
 	
-	    if(type == "" || place == "" || number == "" || requestName == "" || requestPlace == ""){
+	    /* if(type == "" || place == "" || number == "" || requestName == "" || requestPlace == ""){
 	        ons.notification.alert('Please fill out the entire form!');
 	    }
-	    else {
+	    else { */
 
 
 	var arr = [type, place, number, requestName, requestPlace, addInfo];
@@ -711,7 +767,7 @@ var placeOrder = function () {
 	requestClick();
 	}
 	
-}
+
 
 var getId = function () {
 	var ids = [];
