@@ -39,17 +39,17 @@ html, body {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 80%;
+  height: 90%;
   width: 80%;
 
-  background-color: beige;
+  /* background-color: beige;
   border-radius: 2px;
   border: 2px solid black;
-  text-align: center;
+  text-align: center; */
 }
 
 #requestPage button{
-  background-color: #ea6a36;
+  /* background-color: #ea6a36;
   border: none;
   color: white;
   padding: 10px 15px;
@@ -59,7 +59,7 @@ html, body {
   font-size: 16px;
   margin: 2px 2px;
   margin-bottom: 5%;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 #coffeeType, #coffeePlace, #coffeeNumber, #additionalInfo {
