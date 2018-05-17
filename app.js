@@ -577,6 +577,7 @@ var getOrder = function (id) {
 				currentOrder = orders[i];
 			}
 		}
+		document.getElementById("coffeeImg").src = "images/"+currentOrder.order[0]+".jpg";
 		type.innerHTML = currentOrder.order[0] + " from " + currentOrder.order[1];
 		num.append(currentOrder.order[2]);
 		name.append(currentOrder.order[3])
