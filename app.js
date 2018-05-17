@@ -331,7 +331,7 @@ function initMap() {
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
-			var pos = {
+			this.pos = {
 				lat: position.coords.latitude,
 				lng: position.coords.longitude
 			};
@@ -507,13 +507,13 @@ function addNewMarker(id, type, place) {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: map.getCenter()
+		position: this.pos
 	});
 	map.setCenter(map.getCenter());
 	markername.addListener('click', function () {
 		infoname.open(map, markername);
 	});
-}
+};
 
 //ONSEN UI functions
 window.fn = {};
