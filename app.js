@@ -16,8 +16,8 @@ myShakeEvent.start();
 // register a shake event
 window.addEventListener('shake', shakeEventDidOccur, false);
 //shake event callback
-function shakeEventDidOccur () {
-//Opens coffee order
+function shakeEventDidOccur() {
+	//Opens coffee order
 	requestClick()
 }
 
@@ -483,13 +483,13 @@ function initMap() {
 		map.setCenter(new google.maps.LatLng(y, x));
 	});
 
-	   var range = document.getElementById('rangevalue');
-    var money = $('#moneyplace');
-    range.addEventListener('input', sliderChange);
-    
-    function sliderChange() {
-      money.html(this.value + ' SEK')
-    }
+	var range = document.getElementById('rangevalue');
+	    var money = $('#moneyplace');
+	    range.addEventListener('input', sliderChange);
+
+	    function sliderChange() {
+		money.html(this.value + ' SEK')
+	    }
 
 }
 
@@ -577,7 +577,7 @@ var getOrder = function (id) {
 				currentOrder = orders[i];
 			}
 		}
-		document.getElementById("coffeeImg").src = "images/"+currentOrder.order[0]+".jpg";
+		document.getElementById("coffeeImg").src = "images/" + currentOrder.order[0] + ".jpg";
 		type.innerHTML = currentOrder.order[0] + " from " + currentOrder.order[1];
 		num.append(currentOrder.order[2]);
 		name.append(currentOrder.order[3])
@@ -683,6 +683,7 @@ var makeOrder = function () {
 	var fourth = document.getElementById("fourth");
 	var orderBtn = document.getElementById("makeOrderBtn");
 	var placeOrderBtn = document.getElementById("placeOrder");
+	var clearBtn = document.getElementById("clearBtn");
 
 	var title = document.getElementById("coffeeTitle");
 	var coffeeNo = document.getElementById("coffeeNo");
@@ -695,30 +696,31 @@ var makeOrder = function () {
 	var orderPlace = "";
 	var info = "";
 
+	clearBtn.addEventListener('click', function () {second.style.display = 'none'; third.style.display = 'none'; fourth.style.display = 'none'; first.style.display = 'block'; title.innerHTML = "Order Coffee"; hideRequest();});
+
 	var typeArray = document.querySelectorAll('#chooseType');
-	typeArray.forEach(function(tElem) {
-		tElem.addEventListener('click', function() {
+	typeArray.forEach(function (tElem) {
+		tElem.addEventListener('click', function () {
 			type = this.lastElementChild.innerHTML;
 			first.style.display = 'none';
 			title.innerHTML = type;
 			second.style.display = 'block';
 			coffeeNo.innerHTML = num;
-			document.getElementById("plus").addEventListener('click', function() {num += 1; coffeeNo.innerHTML = num});
-			document.getElementById("minus").addEventListener('click', function() {if (num > 1) {num -= 1; coffeeNo.innerHTML = num};});
-			orderBtn.addEventListener('click', function() {
+			document.getElementById("plus").addEventListener('click', function () { num += 1; coffeeNo.innerHTML = num });
+			document.getElementById("minus").addEventListener('click', function () { if (num > 1) { num -= 1; coffeeNo.innerHTML = num }; });
+			orderBtn.addEventListener('click', function () {
 				second.style.display = 'none';
 				title.innerHTML = "Choose location:";
 				third.style.display = 'block';
-				document.querySelectorAll('#choosePlace').forEach(function(pElem) {
-					pElem.addEventListener('click', function() {
+				document.querySelectorAll('#choosePlace').forEach(function (pElem) {
+					pElem.addEventListener('click', function () {
 						coffeePlace = this.lastElementChild.innerHTML;
 						third.style.display = 'none';
 						title.innerHTML = "Your Info:";
 						fourth.style.display = 'block';
-						placeOrderBtn.addEventListener('click', function() {
+						placeOrderBtn.addEventListener('click', function () {
 							name = document.getElementById("requestName").value;
 							price = document.getElementById('rangevalue').value;
-							console.log(price);
 							orderPlace = document.getElementById("requestPlace").value;
 							info = document.getElementById("addInfo").value;
 							if (type === "" || coffeePlace === "" || num === "" || name === "" || orderPlace === "" || price === "") {
@@ -727,10 +729,15 @@ var makeOrder = function () {
 							else {
 								placeOrder(type, coffeePlace, num, name, price, orderPlace, info);
 								fourth.style.display = 'none';
+								backBtn.style.display = 'none';
 								title.innerHTML = "Order Coffee";
 								first.style.display = 'block';
 								num = 1;
 								document.getElementById("requestName").value = "";
+								document.getElementById("rangevalue").value = 10;
+								document.getElementById("moneyplace").innerHTML = 10;
+								document.getElementById("requestPlace").value = "";
+								document.getElementById("addInfo").value = "";
 								orderPlace = "";
 								info = "";
 								hideRequest();
@@ -763,8 +770,8 @@ var placeOrder = function (type, place, number, requestName, price, requestPlace
 	toast.toggle();
 	copyToClipboard(rand);
 	addNewMarker(rand, requestName, requestPlace);
-	}
-	
+}
+
 
 
 var getId = function () {
@@ -778,7 +785,7 @@ var getId = function () {
 	}
 	while ($.inArray(num, ids) > -1);
 	return num;
-	
+
 }
 
 var updateOrders = function () {

@@ -52,36 +52,51 @@
 				</div>
 
 				<ons-card id="requestPage" style="display: none; overflow-y: scroll;">
-					<div id="coffeeTitle" class="title">Order Coffee</div>
+					<ons-toolbar style="position: fixed; width: 80%; margin: 0 auto; text-align: center;">
+						<div id="coffeeTitle" class="center">Order Coffee</div>
+						<div class="right">
+							<ons-toolbar-button id="clearBtn" icon="fa-times"></ons-toolbar-button>
+						</div>
+					</ons-toolbar>
+					<br/>
+
 					<div class="content" id="first">
 						<ons-card id="chooseType">
 							<img class="coffeeimage" src="images/Latte.jpg" alt="Onsen UI">
 							<div class="title">Latte</div>
 						</ons-card>
 						<ons-card id="chooseType">
-							<img class ="coffeeimage" src="images/Cappuccino.jpg" alt="Onsen UI">
+							<img class="coffeeimage" src="images/Cappuccino.jpg" alt="Onsen UI">
 							<div class="title">Cappuccino</div>
 						</ons-card>
 						<ons-card id="chooseType">
-							<img class ="coffeeimage" src="images/Flat White.jpg" alt="Onsen UI">
+							<img class="coffeeimage" src="images/Flat White.jpg" alt="Onsen UI">
 							<div class="title">Flat White</div>
 						</ons-card>
 						<ons-card id="chooseType">
-							<img class ="coffeeimage" src="images/Ice Coffee.jpg" alt="Onsen UI">
+							<img class="coffeeimage" src="images/Ice Coffee.jpg" alt="Onsen UI">
 							<div class="title">Ice Coffee</div>
 						</ons-card>
 					</div>
 
 					<div class="content" id="second" style="display: none;">
-						<ons-list-header id="details">Number of coffees:</ons-list-header><br/>
-						<br/><br/><br/>
+						<ons-list-header id="details">Number of coffees:</ons-list-header>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
 						<ons-fab id="plus" position="center center">
-								<ons-icon icon="md-plus"></ons-icon>
-							</ons-fab>
+							<ons-icon icon="md-plus"></ons-icon>
+						</ons-fab>
 						<div id="coffeeNo" class="title">1</div>
 						<ons-fab id="minus" position="center center">
-								<ons-icon icon="md-minus"></ons-icon>
-							</ons-fab><br/><br/><br/><br/><br/>
+							<ons-icon icon="md-minus"></ons-icon>
+						</ons-fab>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
 						<ons-button id="makeOrderBtn">Next</ons-button>
 					</div>
 
@@ -118,9 +133,12 @@
 
 					<div class="content" id="fourth" style="display: none;">
 						<ons-list style="text-align: center;">
-								<br/>
-							<ons-input id="requestName" modifier="underbar" placeholder="Name"></ons-input><br/><br/>
-							<ons-list-header id="details">Price for delivery:</ons-list-header><br/>
+							<br/>
+							<ons-input id="requestName" modifier="underbar" placeholder="Name"></ons-input>
+							<br/>
+							<br/>
+							<ons-list-header id="details">Price for delivery:</ons-list-header>
+							<br/>
 							<ons-row>
 								<ons-col width="40px" style="text-align: right; line-height: 31px;">
 									<i class="zmdi zmdi-money"></i>
@@ -134,7 +152,8 @@
 								</ons-col>
 							</ons-row>
 
-							<ons-input id="requestPlace" modifier="underbar" placeholder="Where are you sitting?"></ons-input><br/>
+							<ons-input id="requestPlace" modifier="underbar" placeholder="Where are you sitting?"></ons-input>
+							<br/>
 							<div id="additionalInfo">
 								<textarea class="textarea textarea--transparent" id="addInfo" rows="3" placeholder="Additional info (milk, sugar etc.)"></textarea>
 							</div>
