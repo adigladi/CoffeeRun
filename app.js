@@ -634,6 +634,10 @@ var viewOrder = function (id) {
 				if (input == id) {
 					removeRun(id);
 					removeOrder();
+					ons.notification.alert({
+						title: "Enjoy your coffee",
+						message: "Order completed!"
+					});
 				}
 				else {
 					ons.notification.alert({
