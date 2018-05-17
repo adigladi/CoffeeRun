@@ -512,10 +512,15 @@ function addNewMarker(id, name, place) {
 	map.setCenter(map.getCenter());
 	markername.addListener('click', function () {
 		infoname.open(map, markername);
-		markername.setIcon('./images/markerpurple.png')
-		infoname.setContent('In progress!!')
 	});
 };
+
+function markerInProgress(id) {
+	markername = "marker" + id;
+	infoname = "info" + id;
+	markername.setIcon('./images/markerpurple.png')
+	infoname.setContent('In progress!!')
+}
 
 //ONSEN UI functions
 window.fn = {};
@@ -596,6 +601,7 @@ var getOrder = function (id) {
 				});
 				removeOrder();
 				coffeeRun(id, runName);
+				markerInProgress(id);
 			});
 		});
 	});
