@@ -541,8 +541,8 @@ function removeMarker(id) {
 	for (i = 0; i < markerarray.length; i++) { 
     	if(markerarray[i].id === id){
 			clearMarkers(markerarray[i].markername);
-			delete markerarray[i];
-			delete infoarray[i];
+			markerarray.splice(i,1);
+			infoarray.splice(i,1);
 			console.log(markerarray);
 			console.log(infoarray);
 		}
