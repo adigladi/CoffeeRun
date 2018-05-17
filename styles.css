@@ -260,10 +260,6 @@ body .page__background, .select-input {
   -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
 }
 
-a {
-  display: none;
-}
-
 span {
   display: none;
 }
