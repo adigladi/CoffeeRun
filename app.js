@@ -512,6 +512,8 @@ function addNewMarker(id, name, place) {
 	map.setCenter(map.getCenter());
 	markername.addListener('click', function () {
 		infoname.open(map, markername);
+		markername.setIcon('./images/markerpurple.png')
+		infoname.setContent('In progress!!')
 	});
 };
 
