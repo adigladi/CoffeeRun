@@ -761,7 +761,7 @@ var placeOrder = function (type, place, number, requestName, price, requestPlace
 	toastCode.innerHTML = "Order code copied to clipboard: " + rand;
 	toast.toggle();
 	copyToClipboard(rand);
-	addNewMarker(rand, type, place);
+	addNewMarker(rand, requestName, requestPlace);
 	}
 	
 
