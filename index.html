@@ -72,7 +72,19 @@
 						</ons-card>
 					</div>
 
-					<div class="content" id="second">
+					<div class="content" id="second" style="display: none;">
+						<ons-list-header id="details">Number of coffees:</ons-list-header><br/>
+						<div class="title">1</div>
+						<ons-fab position="center center">
+							<ons-icon icon="md-minus"></ons-icon>
+						</ons-fab>
+						<ons-fab position="center center">
+							<ons-icon icon="md-plus"></ons-icon>
+						</ons-fab><br/><br/><br/>
+						<ons-button>Next</ons-button>
+					</div>
+
+					<div class="content" id="third" style="display: none;">
 						<ons-card onclick="nextCard()">
 							<img src="images/open.jpg" alt="Onsen UI" style="width: 30%; float: right;">
 							<div class="title">Open</div>
@@ -103,52 +115,29 @@
 						</ons-card>
 					</div>
 
-					<div class="content" id="third" style="display: none;">
-						<ons-input id="requestName" type="text" placeholder="Your name"></ons-input>
-						<ons-select id="coffeeType">
-							<option value="Latte" selected="true" disabled="disabled">Coffee Type</option>
-							<option value="Latte">Latte</option>
-							<option value="Cappuccino">Cappuccino</option>
-							<option value="Flat White">Flat White</option>
-							<option value="Ice Coffee">Ice Coffee</option>
-						</ons-select>
-						<ons-select id="coffeePlace">
-							<option value="Open" selected="true" disabled="disabled">Coffee Place</option>
-							<option value="Open">Open</option>
-							<option value="KTH Entré">KTH Entré</option>
-							<option value="KTH Biblioteket">KTH Biblioteket</option>
-							<option value="Syster o Rorb">Syster o Rorb</option>
-						</ons-select>
-						<ons-select id="coffeeNumber">
-							<option value="1" selected="true" disabled="disabled">Number of Coffees</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</ons-select>
+					<div class="content" id="fourth">
+						<ons-list style="text-align: center;">
+								<br/>
+							<ons-input id="requestName" modifier="underbar" placeholder="Name"></ons-input><br/><br/>
+							<ons-list-header id="details">Price for delivery:</ons-list-header><br/>
+							<ons-row>
+								<ons-col width="40px" style="text-align: right; line-height: 31px;">
+									<i class="zmdi zmdi-money"></i>
+								</ons-col>
+								<ons-col>
+									<ons-range id="rangevalue" style="width: 70%;" min="0" max="20" value="10"></ons-range>
+									<p id="moneyplace">10 SEK</p>
+								</ons-col>
+								<ons-col width="40px" style="text-align: left; line-height: 31px;">
+									<i class="zmdi zmdi-money-box"></i>
+								</ons-col>
+							</ons-row>
 
-						<ons-row>
-							<ons-col width="40px" style="text-align: right; line-height: 31px;">
-
-								<i class="zmdi zmdi-money"></i>
-							</ons-col>
-							<ons-col>
-								<ons-range id="rangevalue" style="width: 70%;" min="0" max="20" value="10"></ons-range>
-
-								<p id="moneyplace">10 SEK</p>
-							</ons-col>
-
-							<ons-col width="40px" style="text-align: left; line-height: 31px;">
-
-								<i class="zmdi zmdi-money-box"></i>
-							</ons-col>
-						</ons-row>
-
-						<input id="requestPlace" type="text" placeholder="Where are you sitting?" />
-						<div id="additionalInfo">
-							<textarea class="textarea" id="addInfo" rows="3" placeholder="Additional Info"></textarea>
-						</div>
+							<ons-input id="requestPlace" modifier="underbar" placeholder="Where are you sitting?"></ons-input><br/>
+							<div id="additionalInfo">
+								<textarea class="textarea textarea--transparent" id="addInfo" rows="3" placeholder="Additional info (milk, sugar etc.)"></textarea>
+							</div>
+						</ons-list>
 						<button id="placeOrder" onclick="placeOrder()">PLACE ORDER</button>
 					</div>
 				</ons-card>
