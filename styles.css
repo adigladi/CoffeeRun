@@ -99,6 +99,11 @@ html, body {
   margin-left: 30%;
 }
 
+#coffeeNo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 
 #noCoffeeHeadline {
   color: black !important;
