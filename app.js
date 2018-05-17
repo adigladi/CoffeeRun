@@ -495,6 +495,9 @@ function initMap() {
 
 //MARKERS END
 
+var markerarray = [];
+var infoarray = [];
+
 function addNewMarker(id, name, place) {
 	var markername = "marker" + id;
 	var infoname = "info" + id;
@@ -502,6 +505,7 @@ function addNewMarker(id, name, place) {
 	var infoname = new google.maps.InfoWindow({
 		content: markerinfo
 	});
+	infoarray.push({id,infoname});
 
 	markername = new google.maps.Marker({
 		map: map,
@@ -513,13 +517,36 @@ function addNewMarker(id, name, place) {
 	markername.addListener('click', function () {
 		infoname.open(map, markername);
 	});
+	markerarray.push({id, markername});
+	console.log(markerarray);
+	console.log(infoarray);
 };
 
 function markerInProgress(id) {
-	markername = "marker" + id;
-	infoname = "info" + id;
-	markername.setIcon('./images/markerpurple.png')
-	infoname.setContent('In progress!!')
+	var i;
+	for (i = 0; i < markerarray.length; i++) { 
+    	if(markerarray[i].id === id){
+			markerarray[i].markername.setIcon('./images/markerpurple.png')
+			infoarray[i].infoname.setContent('In progress!!')
+		}
+	}
+}
+
+function clearMarkers(marker) {
+	marker.setMap(null);
+  }
+
+function removeMarker(id) {
+	var i;
+	for (i = 0; i < markerarray.length; i++) { 
+    	if(markerarray[i].id === id){
+			clearMarkers(markerarray[i].markername);
+			delete markerarray[i];
+			delete infoarray[i];
+			console.log(markerarray);
+			console.log(infoarray);
+		}
+	}
 }
 
 //ONSEN UI functions
@@ -600,8 +627,8 @@ var getOrder = function (id) {
 					title: ""
 				});
 				removeOrder();
-				coffeeRun(id, runName);
 				markerInProgress(id);
+				coffeeRun(id, runName);
 			});
 		});
 	});
@@ -639,6 +666,7 @@ var viewOrder = function (id) {
 			}).then(function (input) {
 				if (input == id) {
 					removeRun(id);
+					removeMarker(id);
 					removeOrder();
 				}
 				else {
