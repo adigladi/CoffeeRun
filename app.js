@@ -498,7 +498,19 @@ function initMap() {
 var markerarray = [];
 var infoarray = [];
 
-function addNewMarker(id, name, place) {
+function addNewMarker(id, name, place, setLat = "none", setLng = "none", isNew = false) {
+	var markerPosition;
+	console.log(setLat);
+	if (setLat === "none" && setLng === "none") {
+		markerPosition = this.pos;
+	} else {
+		markerPosition = {lat: setLat, lng: setLng};
+	}
+	if (isNew) {
+		markerAnimation = google.maps.Animation.DROP;
+	} else {
+		markerAnimation = null;
+	}
 	var markername = "marker" + id;
 	var infoname = "info" + id;
 	var markerinfo = name + " in " + place;
@@ -511,15 +523,15 @@ function addNewMarker(id, name, place) {
 		map: map,
 		draggable: true,
 		animation: google.maps.Animation.DROP,
-		position: this.pos
+		position: markerPosition
 	});
 	map.setCenter(map.getCenter());
 	markername.addListener('click', function () {
 		infoname.open(map, markername);
 	});
 	markerarray.push({id, markername});
-	console.log(markerarray);
-	console.log(infoarray);
+	//console.log(markername.position);
+	//console.log(markerDataArray);
 };
 
 function markerInProgress(id) {
@@ -543,7 +555,7 @@ function removeMarker(id) {
 			clearMarkers(markerarray[i].markername);
 			markerarray.splice(i,1);
 			infoarray.splice(i,1);
-			console.log(markerarray);
+			console.log("markerarray");
 			console.log(infoarray);
 		}
 	}
@@ -668,6 +680,7 @@ var viewOrder = function (id) {
 				if (input == id) {
 					removeRun(id);
 					removeMarker(id);
+					writeOrderData(orders, runs, markerDataArray);
 					removeOrder();
 					ons.notification.alert({
 						title: "Enjoy your coffee",
@@ -696,8 +709,8 @@ var coffeeRun = function (idIn, name) {
 			orders[i].order.push(name);
 			runs.push(orders[i]);
 			orders.splice(i, 1);
-			writeOrderData(orders, runs);
 			updateOrders();
+			writeOrderData(orders, runs, markerDataArray);
 		}
 	}
 }
@@ -705,9 +718,10 @@ var coffeeRun = function (idIn, name) {
 var removeRun = function (idIn) {
 	for (var i = 0; i < runs.length; i++) {
 		if (runs[i].id === idIn) {
+			removeFromMarkerDataArray(runs[i].id);
 			runs.splice(i, 1);
-			writeOrderData(orders, runs);
 			updateOrders();
+			//writeOrderData(orders, runs, markerDataArray);
 		}
 	}
 }
@@ -790,6 +804,7 @@ var makeOrder = function () {
 
 var orders = [];
 var runs = [];
+var markerDataArray = [];
 
 var placeOrder = function (type, place, number, requestName, price, requestPlace, addInfo) {
 	console.log(addInfo);
@@ -802,11 +817,14 @@ var placeOrder = function (type, place, number, requestName, price, requestPlace
 
 	orders.push(obj);
 	updateOrders();
-	writeOrderData(orders, runs);
 	toastCode.innerHTML = "Order code copied to clipboard: " + rand;
 	toast.toggle();
 	copyToClipboard(rand);
-	addNewMarker(rand, requestName, requestPlace);
+	console.log(requestName);
+	console.log(requestPlace);
+	addNewMarker(rand, requestName, requestPlace, "none", "none", true);
+	updateMarkerDataArray(rand, requestName, requestPlace);
+	writeOrderData(orders, runs, markerDataArray);
 }
 
 
@@ -862,20 +880,69 @@ function getOrderData() {
 			runs = [];
 			updateOrders();
 		}
+		if (typeof snapshot.val().markerData !== 'undefined') {
+			markerDataArray = snapshot.val().markerData;
+			createAllMarkers(markerDataArray);
+		} else {
+			markerDataArray = [];
+			createAllMarkers("None");
+		}
 		console.log(snapshot.val());
 	});
 }
 
-//Function to write to Firebase
-function writeOrderData(availableRuns, inProgressRuns) {
+//Functions to write to Firebase
+function updateMarkerDataArray(mUpdId, mUpdName, mUpdPlace) {
+	for (var i = 0; i < markerarray.length; i++) {
+		console.log(markerarray[i].id);
+		if (markerarray[i].id === mUpdId) {
+			markerDataArray.push([mUpdId, mUpdName, mUpdPlace, markerarray[i].markername.position.lat(), markerarray[i].markername.position.lng()]);
+		}
+	}
+}
+
+function removeFromMarkerDataArray(markerForRemoval) {
+	for (var i = 0; i < markerDataArray.length; i++) {
+		if (markerDataArray[i][0] === markerForRemoval) {
+			markerDataArray.splice(i, 1);
+		}
+	}
+}
+
+function writeOrderData(availableRuns, inProgressRuns, markerData) {
 	var updates = {};
 	updates['/available'] = availableRuns;
 	updates['/inProgress'] = inProgressRuns;
+	updates['/markerData'] = markerData;
 	firebase.database().ref().update(updates);
 }
 
-//writeOrderData();
-//getOrderData();
+function createAllMarkers(inputMarkers) {
+	if (inputMarkers === "None") {
+		for (i = 0; i < markerarray.length; i++) {
+			clearMarkers(markerarray[i].markername);
+			markerarray.splice(i, 1);
+			infoarray.splice(i, 1);
+		}
+	} else {
+		for (i = 0; i < markerarray.length; i++) {
+			clearMarkers(markerarray[i].markername);
+			markerarray.splice(i, 1);
+			infoarray.splice(i, 1);
+		}
+		for (var i = 0; i < inputMarkers.length; i++) {
+			if (i === inputMarkers.length) {
+				addNewMarker(inputMarkers[i][0], inputMarkers[i][1], inputMarkers[i][2], inputMarkers[i][3], inputMarkers[i][4], true);				
+			} else {
+				addNewMarker(inputMarkers[i][0], inputMarkers[i][1], inputMarkers[i][2], inputMarkers[i][3], inputMarkers[i][4]);
+			}
+			//console.log(inputMarkers[i]);
+		}
+		for (var r = 0; r < runs.length; r++) {
+			markerInProgress(runs[r].id);
+		}
+	}
+}
 
 firebase.database().ref().on('value', function (snapshot) {
 	getOrderData();
