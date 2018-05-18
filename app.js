@@ -767,7 +767,6 @@ var makeOrder = function () {
 							else {
 								placeOrder(type, coffeePlace, num, name, price, orderPlace, info);
 								fourth.style.display = 'none';
-								backBtn.style.display = 'none';
 								title.innerHTML = "Order Coffee";
 								first.style.display = 'block';
 								num = 1;
